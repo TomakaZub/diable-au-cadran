@@ -1,0 +1,60 @@
+@import "./variables.scss";
+
+html,
+body {
+  background-color: $color-3;
+  font-family: "Helvetica", arial, sans-serif;
+  // transition: all 1s linear !important;
+  #root {
+    .container {
+      position: relative;
+    }
+  }
+}
+
+// utilisé sur la home page
+@keyframes slide-to-the-left {
+  to {
+    right: 50px;
+  }
+}
+
+// utilisé sur la home page
+@keyframes slide-to-the-right {
+  to {
+    left: 0px;
+  }
+}
+
+@keyframes slide-to-the-top {
+  to {
+    top: 20%;
+  }
+}
+
+// utilisé sur l'image de la home page
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// utilisé pour inciter le scroll sur la home page
+@keyframes scroll {
+  0% {
+    opacity: 0;
+    bottom: -50px;
+  }
+  10% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(6px);
+    opacity: 0;
+    bottom: 0px;
+  }
+}

@@ -1,0 +1,35 @@
+@import "./common.scss";
+
+ul.pager-item {
+  position: fixed;
+  z-index: 1;
+  right: -100px;
+  top: 50%;
+  margin: 0;
+  list-style: none;
+  animation-name: slide-to-the-left;
+  animation-duration: 1s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+
+  li.pager {
+    display: block;
+    cursor: pointer;
+    margin-bottom: 20px;
+    width: 3px;
+    height: 3px;
+    background: white;
+    background-clip: padding-box;
+    border: 5px solid transparent;
+    border-radius: 50%;
+    transition: all 300ms linear;
+  }
+
+  .active,
+  .active-top {
+    li.pager {
+      background: black;
+      border: 5px solid white;
+    }
+  }
+}

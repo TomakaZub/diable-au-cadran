@@ -1,0 +1,77 @@
+@import "./variables.scss";
+
+.section {
+  height: 100vh;
+  background-color: $color-3;
+  border: 10px solid white;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  h5 {
+    color: blue;
+  }
+
+  &.section0 {
+    .bg-pic {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      transition: all 500ms ease-in-out;
+      animation: 2.5s ease normal forwards 1 fadein;
+
+      &.nb-pic {
+        background-image: url("../img/jf-nb.png");
+        background-size: cover;
+      }
+
+      &.red-pic {
+        background-image: url("../img/jf-rouge.png");
+        background-size: cover;
+      }
+
+      .logo {
+        position: absolute;
+        width: 500px;
+        color: $color-3;
+        opacity: 0.9;
+        font-size: 8em;
+        margin: 0;
+        padding: 60px 0 0 50px;
+        border-bottom: 3px solid $color-3;
+        left: -430px;
+        animation-name: slide-to-the-right;
+        animation-duration: 1s;
+        animation-delay: 0.5s;
+        animation-fill-mode: forwards;
+      }
+    } /* .bg-pic */
+  } /* &.section0 */
+
+  &.section1 {
+    background-image: url("../img/clock.png");
+    background-size: cover;
+  }
+
+  &.section2 {
+    background-color: green;
+  }
+
+  &.section3 {
+    background-color: orange;
+  }
+
+  .change {
+    height: 100%;
+    transition: all 1s linear;
+    border: 0px solid white;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    &.isChanging {
+      transition: all 1s linear;
+      border: 30px solid white;
+    }
+  }
+}

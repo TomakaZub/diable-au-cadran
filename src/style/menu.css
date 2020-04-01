@@ -1,0 +1,120 @@
+@import url(/Users/aguirregabiria/Desktop/React/diable-au-cadran-v2/src/style/common.css);
+/* -------------------------------------------------------------------------------- */
+/* ------------------------------------- MENU ------------------------------------- */
+.main-menu {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  width: 100%;
+  /* -------------------------------------------------------------------------------- */
+  /* ------------------------------------ BOUTON ------------------------------------ */
+}
+
+.main-menu .list-item-menu {
+  background: #0D0D0D;
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  min-width: 790px;
+  padding: 140px 215px 0 120px;
+  background: #f71614;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transform: translateX(100%) translateZ(0px);
+  transform: translateX(100%) translateZ(0px);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 500ms ease-in-out;
+  -webkit-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
+}
+
+.main-menu .list-item-menu li.item-menu {
+  color: white;
+  display: block;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 2.5em;
+}
+
+.main-menu .list-item-menu li.item-menu.active {
+  color: #0D0D0D;
+}
+
+@media screen and (max-width: 420px) {
+  .main-menu .list-item-menu li.item-menu {
+    font-size: 1.5em;
+  }
+}
+
+.main-menu .list-item-menu .adress {
+  font-size: 1.4em;
+  color: white;
+  padding: 150px 10px;
+}
+
+.main-menu .list-item-menu .adress p {
+  padding: 5px 0;
+}
+
+.main-menu .list-item-menu.open {
+  background-color: red;
+  padding-right: 193.141px;
+  min-width: 525.141px;
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+}
+
+@media screen and (max-width: 420px) {
+  .main-menu .list-item-menu.open {
+    padding-right: 50px;
+    min-width: 420px;
+  }
+}
+
+.main-menu .list-item-menu.open li.item-menu {
+  background-color: red;
+}
+
+.main-menu .list-item-menu.open .adress {
+  font-size: 1.4em;
+  color: white;
+  padding: 150px 10px;
+}
+
+.main-menu .list-item-menu.open .adress p {
+  padding: 5px 0;
+}
+
+.main-menu *,
+.main-menu *::after,
+.main-menu *::before {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.main-menu .btn-menu {
+  --longLineScale: 0.55;
+  --shortLineScale: 0.4;
+  position: absolute;
+  right: -100px;
+  margin-top: 40px;
+  cursor: pointer;
+  -webkit-animation-name: slide-to-the-left;
+          animation-name: slide-to-the-left;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  padding: 10px 0 10px 10px;
+}
+
+.main-menu .menu {
+  color: white;
+}
+/*# sourceMappingURL=menu.css.map */

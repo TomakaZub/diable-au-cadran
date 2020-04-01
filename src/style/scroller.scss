@@ -1,0 +1,33 @@
+@import './common.css';
+@import './variables.scss';
+
+.scroll-info {
+  position: absolute;
+  left: 48%;
+  top: 30%;
+  animation-name: slide-to-the-top;
+  animation-duration: 1s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+
+  .mousey {
+    margin: auto;
+    width: 2px;
+    padding: 8px 12px;
+    height: 20px;
+    border: 1px solid #fff;
+    border-radius: 12px;
+    box-sizing: content-box;
+
+    .scroller {
+      width: 2px;
+      height: 7px;
+      border-radius: 25%;
+      background-color: #fff;
+      animation-name: scroll;
+      animation-duration: 2.2s;
+      animation-timing-function: cubic-bezier(.15,.41,.69,.94);
+      animation-iteration-count: infinite;
+    }
+  } /* .mousey */
+} /* .scroll-info */
