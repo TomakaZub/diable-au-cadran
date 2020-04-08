@@ -1,8 +1,10 @@
 import React, { useContext, useEffect, useState } from "react"
 import FirebaseContext from "../../firebase/context"
 import Scroller from "../Scroller"
+import MouseTracker from "../MouseTracker"
 
 import "../../style/section.css"
+import "../../style/mouseTracker.css"
 
 const Section0 = ({ section }) => {
   const { appContext } = useContext(FirebaseContext)
@@ -20,6 +22,7 @@ const Section0 = ({ section }) => {
   if (section) {
     return (
       <div className={`section section${section.tech.order}  main-container `}>
+        <Scroller />
         <div
           className={
             appContext.isChanging
@@ -27,7 +30,7 @@ const Section0 = ({ section }) => {
               : `change bg-pic ${menuClass}`
           }
         >
-          <div className='logo'>Le Diable Au Cadran</div>
+          <MouseTracker />
           <Scroller />
         </div>
       </div>

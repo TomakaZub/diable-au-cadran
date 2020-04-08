@@ -11,17 +11,13 @@
   width: 100%;
 
   .list-item-menu {
-    background: $color-1;
+    background-color: $color-1;
     position: fixed;
     right: 0;
     top: 0;
     height: 100%;
-    min-width: 790px;
-    padding: 140px 215px 0 120px;
-    background: #f71614;
-    // border-top: 10px solid white;
-    // border-right: 10px solid white;
-    // border-bottom: 10px solid white;
+    min-width: 80%;
+    padding: 10% 15% 0 10%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -39,7 +35,7 @@
       display: block;
       padding: 5px 10px;
       cursor: pointer;
-      font-size: 2.5em;
+      font-size: 2em;
 
       &.active {
         color: $color-1;
@@ -48,7 +44,7 @@
       @media screen and (max-width: 420px) {
         font-size: 1.5em;
       }
-    }
+    } /* .list-item-menu */
 
     .adress {
       font-size: 1.4em;
@@ -57,144 +53,24 @@
       p {
         padding: 5px 0;
       }
-    }
+    } /* .adress */
   }
 
   .list-item-menu.open {
     background-color: $color-2;
-    padding-right: 193.141px;
-    min-width: 525.141px;
+    padding-right: 15%;
+    min-width: 30%;
     transform: translateX(0%);
 
-    @media screen and (max-width: 420px) {
+    @media screen and (max-width: 600px) {
+      padding-top: 15%;
       padding-right: 50px;
-      min-width: 420px;
+      min-width: 5%;
     }
 
-    li.item-menu {
-      background-color: $color-2;
+    @media screen and (max-width: 500px) {
+      padding-top: 25%;
+      width: 100%;
     }
-
-    .adress {
-      font-size: 1.4em;
-      color: white;
-      padding: 150px 10px;
-      p {
-        padding: 5px 0;
-      }
-    }
-  }
-
-  /* -------------------------------------------------------------------------------- */
-  /* ------------------------------------ BOUTON ------------------------------------ */
-
-  *,
-  *::after,
-  *::before {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-
-  .btn-menu {
-    --longLineScale: 0.55;
-    --shortLineScale: 0.4;
-    position: absolute;
-    right: -100px;
-    margin-top: 40px;
-    cursor: pointer;
-    animation-name: slide-to-the-left;
-    animation-duration: 1s;
-    animation-delay: 0.5s;
-    animation-fill-mode: forwards;
-    padding: 10px 0 10px 10px;
-  }
-
-  .menu {
-    color: $color-3;
-  }
-
-  // .menu {
-  //   text-transform: uppercase;
-  //   font-size: 1em;
-  //   text-decoration: none;
-  //   letter-spacing: 0.45em;
-  //   color: $color-3;
-  //   font-weight: 100;
-  //   width: auto;
-  //   overflow: hidden;
-  //   text-align: right;
-
-  //   @media screen and (max-width: 420px) {
-  //     font-size: 0.7em;
-  //   }
-
-  //   .menu--text {
-  //     display: flex;
-
-  //     span {
-  //       width: 100%;
-  //       margin-right: -100%;
-  //       opacity: 0;
-  //       transition: opacity 200ms linear;
-  //     }
-  //   }
-
-  //   &::after,
-  //   &::before {
-  //     content: "";
-  //     display: block;
-  //     height: 3px;
-  //     width: 100%;
-  //     background: $color-3;
-  //     transition: transform 200ms cubic-bezier(0.5, 0, 0.5, 1);
-  //   }
-
-  //   &::before {
-  //     transform-origin: top right;
-  //     transform: scaleX(var(--shortLineScale));
-  //   }
-
-  //   &::after {
-  //     transform-origin: top right;
-  //     transform: scaleX(var(--longLineScale));
-  //   }
-
-  //   &:hover {
-  //     [data-hover] {
-  //       opacity: 1;
-  //     }
-  //     &::after {
-  //       transform: translateY(0.75em) scaleX(var(--longLineScale));
-  //     }
-  //     &::before {
-  //       transform: translateY(-0.75em) scaleX(var(--shortLineScale));
-  //     }
-  //   }
-  // }
-
-  // .open .menu {
-  //   [data-hover] {
-  //     opacity: 0;
-  //   }
-  //   [data-close] {
-  //     opacity: 1;
-  //   }
-  //   &::after {
-  //     transform: translateY(0.75em) scaleX(var(--shortLineScale));
-  //     background: $color-3;
-  //   }
-  //   &::before {
-  //     transform: translateY(-0.75em) scaleX(var(--longLineScale));
-  //     background: $color-3;
-  //   }
-  //   &:hover {
-  //     &::after {
-  //       transform: translateY(0.65em) scaleX(var(--shortLineScale));
-  //     }
-  //     &::before {
-  //       transform: translateY(-0.65em) scaleX(var(--longLineScale));
-  //     }
-  //   }
-  // } /*.open .menu */
-}
+  } /* .list-item-menu.open */
+} /* .main-menu */

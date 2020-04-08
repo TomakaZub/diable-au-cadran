@@ -11,10 +11,10 @@ ul.pager-item {
   animation-duration: 1s;
   animation-delay: 0.5s;
   animation-fill-mode: forwards;
+  cursor: pointer;
 
   li.pager {
     display: block;
-    cursor: pointer;
     margin-bottom: 20px;
     width: 3px;
     height: 3px;
@@ -23,7 +23,12 @@ ul.pager-item {
     border: 5px solid transparent;
     border-radius: 50%;
     transition: all 300ms linear;
-  }
+
+    &:hover {
+      border: 5px solid rgba(255, 255, 255, 0.582);
+      background: black;
+    }
+  } /* li.pager */
 
   .active,
   .active-top {
@@ -32,4 +37,4 @@ ul.pager-item {
       border: 5px solid white;
     }
   }
-}
+} /* ul.pager-item  */

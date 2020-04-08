@@ -6,19 +6,17 @@
   z-index: 10;
   top: 0;
   width: 100%;
-  /* -------------------------------------------------------------------------------- */
-  /* ------------------------------------ BOUTON ------------------------------------ */
+  /* .list-item-menu.open */
 }
 
 .main-menu .list-item-menu {
-  background: #0D0D0D;
+  background-color: #0d0d0d;
   position: fixed;
   right: 0;
   top: 0;
   height: 100%;
-  min-width: 790px;
-  padding: 140px 215px 0 120px;
-  background: #f71614;
+  min-width: 80%;
+  padding: 10% 15% 0 10%;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-transform: translateX(100%) translateZ(0px);
@@ -28,6 +26,8 @@
   -webkit-transition: -webkit-transform 500ms ease-in-out;
   -webkit-transition: all 500ms ease-in-out;
   transition: all 500ms ease-in-out;
+  /* .list-item-menu */
+  /* .adress */
 }
 
 .main-menu .list-item-menu li.item-menu {
@@ -35,11 +35,11 @@
   display: block;
   padding: 5px 10px;
   cursor: pointer;
-  font-size: 2.5em;
+  font-size: 2em;
 }
 
 .main-menu .list-item-menu li.item-menu.active {
-  color: #0D0D0D;
+  color: #0d0d0d;
 }
 
 @media screen and (max-width: 420px) {
@@ -59,62 +59,27 @@
 }
 
 .main-menu .list-item-menu.open {
-  background-color: red;
-  padding-right: 193.141px;
-  min-width: 525.141px;
+  background-color: #db0000;
+  padding-right: 15%;
+  min-width: 30%;
   -webkit-transform: translateX(0%);
           transform: translateX(0%);
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 600px) {
   .main-menu .list-item-menu.open {
+    padding-top: 15%;
     padding-right: 50px;
-    min-width: 420px;
+    min-width: 5%;
   }
 }
 
-.main-menu .list-item-menu.open li.item-menu {
-  background-color: red;
+@media screen and (max-width: 500px) {
+  .main-menu .list-item-menu.open {
+    padding-top: 25%;
+    width: 100%;
+  }
 }
 
-.main-menu .list-item-menu.open .adress {
-  font-size: 1.4em;
-  color: white;
-  padding: 150px 10px;
-}
-
-.main-menu .list-item-menu.open .adress p {
-  padding: 5px 0;
-}
-
-.main-menu *,
-.main-menu *::after,
-.main-menu *::before {
-  padding: 0;
-  margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.main-menu .btn-menu {
-  --longLineScale: 0.55;
-  --shortLineScale: 0.4;
-  position: absolute;
-  right: -100px;
-  margin-top: 40px;
-  cursor: pointer;
-  -webkit-animation-name: slide-to-the-left;
-          animation-name: slide-to-the-left;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-delay: 0.5s;
-          animation-delay: 0.5s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  padding: 10px 0 10px 10px;
-}
-
-.main-menu .menu {
-  color: white;
-}
+/* .main-menu */
 /*# sourceMappingURL=menu.css.map */

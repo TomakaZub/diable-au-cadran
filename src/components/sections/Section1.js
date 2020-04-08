@@ -1,6 +1,7 @@
 import React, { useContext } from "react"
+import { ParallaxProvider, Parallax } from "react-scroll-parallax"
 import FirebaseContext from "../../firebase/context"
-import Scroller from "../Scroller"
+import { addLineBreaks } from "../../utils/textUtil"
 
 import "../../style/section.css"
 
@@ -9,9 +10,27 @@ const Section1 = ({ section }) => {
 
   if (section) {
     return (
-      <div className={`section section${section.tech.order}`}>
+      <div id='section1' className={`section section${section.tech.order}`}>
         <div className={appContext.isChanging ? "change isChanging" : "change"}>
-          <div>{section.title}</div>
+          <ParallaxProvider>
+            <div
+              className={
+                appContext.isMenuOpen
+                  ? "trapezoid-left menuIsOpen"
+                  : "trapezoid-left"
+              }
+            >
+              <div className='content'>
+                <Parallax x={[-80, 80]}>
+                  {addLineBreaks(section.content)}{" "}
+                </Parallax>
+              </div>
+            </div>
+            <div className='trapezoid-right'></div>
+            <Parallax y={[0, 0]} className='section-title'>
+              <h2>{section.title}</h2>
+            </Parallax>
+          </ParallaxProvider>
         </div>
       </div>
     )

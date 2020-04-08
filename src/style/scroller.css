@@ -1,8 +1,10 @@
 @import url(/Users/aguirregabiria/Desktop/React/diable-au-cadran-v2/src/style/common.css);
 .scroll-info {
   position: absolute;
-  left: 48%;
-  top: 30%;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  margin-top: 40px;
   -webkit-animation-name: slide-to-the-top;
           animation-name: slide-to-the-top;
   -webkit-animation-duration: 1s;
@@ -15,10 +17,13 @@
 }
 
 .scroll-info .mousey {
+  position: absolute;
+  top: 85%;
+  left: 50%;
   margin: auto;
   width: 2px;
-  padding: 8px 12px;
-  height: 20px;
+  padding: 5px 8px;
+  height: 16px;
   border: 1px solid #fff;
   border-radius: 12px;
   -webkit-box-sizing: content-box;

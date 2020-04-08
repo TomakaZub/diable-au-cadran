@@ -35,13 +35,13 @@ body #root .container {
 
 @-webkit-keyframes slide-to-the-top {
   to {
-    top: 20%;
+    bottom: 15%;
   }
 }
 
 @keyframes slide-to-the-top {
   to {
-    top: 20%;
+    bottom: 15%;
   }
 }
 

@@ -35,13 +35,13 @@ body #root .container {
 
 @-webkit-keyframes slide-to-the-top {
   to {
-    top: 20%;
+    bottom: 15%;
   }
 }
 
 @keyframes slide-to-the-top {
   to {
-    top: 20%;
+    bottom: 15%;
   }
 }
 
@@ -114,11 +114,12 @@ ul.pager-item {
           animation-delay: 0.5s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
+  cursor: pointer;
+  /* li.pager */
 }
 
 ul.pager-item li.pager {
   display: block;
-  cursor: pointer;
   margin-bottom: 20px;
   width: 3px;
   height: 3px;
@@ -130,9 +131,16 @@ ul.pager-item li.pager {
   transition: all 300ms linear;
 }
 
+ul.pager-item li.pager:hover {
+  border: 5px solid rgba(255, 255, 255, 0.582);
+  background: black;
+}
+
 ul.pager-item .active li.pager,
 ul.pager-item .active-top li.pager {
   background: black;
   border: 5px solid white;
 }
+
+/* ul.pager-item  */
 /*# sourceMappingURL=pager.css.map */

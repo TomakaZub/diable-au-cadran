@@ -1,18 +1,24 @@
 @import "./variables.scss";
+@import url("https://fonts.googleapis.com/css?family=Muli");
+@import url("https://fonts.googleapis.com/css?family=Lobster");
 
 .section {
+  position: relative;
   height: 100vh;
   background-color: $color-3;
-  border: 10px solid white;
+  border: 10px solid $color-3;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  position: relative;
   overflow: hidden;
-  h5 {
-    color: blue;
+  font-family: "Muli", cursive;
+
+  @media screen and (max-width: 600px) {
+    border: 5px solid $color-3;
   }
 
+  //-----------------------------------------------------------------------------------------/
+  //-------------------------  Section 0  ---------------------------------------------------/
   &.section0 {
     .bg-pic {
       width: 100%;
@@ -22,56 +28,330 @@
       animation: 2.5s ease normal forwards 1 fadein;
 
       &.nb-pic {
-        background-image: url("../img/jf-nb.png");
-        background-size: cover;
+        filter: grayscale(80%);
+        transition: all 500ms ease-in-out;
+        animation: 2.5s ease normal forwards 1 fadein;
+        background-image: url("../img/jf-rouge.png");
       }
 
       &.red-pic {
         background-image: url("../img/jf-rouge.png");
         background-size: cover;
       }
-
-      .logo {
-        position: absolute;
-        width: 500px;
-        color: $color-3;
-        opacity: 0.9;
-        font-size: 8em;
-        margin: 0;
-        padding: 60px 0 0 50px;
-        border-bottom: 3px solid $color-3;
-        left: -430px;
-        animation-name: slide-to-the-right;
-        animation-duration: 1s;
-        animation-delay: 0.5s;
-        animation-fill-mode: forwards;
-      }
     } /* .bg-pic */
   } /* &.section0 */
 
+  //-----------------------------------------------------------------------------------------/
+  //-------------------------  Section 1  ---------------------------------------------------/
+
   &.section1 {
-    background-image: url("../img/clock.png");
-    background-size: cover;
-  }
+    position: relative;
+    background-color: $color-3;
+    box-sizing: border-box;
+    color: $color-3;
+
+    .trapezoid-left {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      clip-path: polygon(0 0, 50% 0, 80% 100%, 0 100%);
+      background-image: url("../img/pendules.jpg");
+      background-size: cover;
+      transition: all 500ms ease-in-out;
+      animation: 2.5s ease normal forwards 1 fadein;
+
+      @media screen and (max-width: 600px) {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+
+      &.menuIsOpen {
+        filter: grayscale(80%);
+        transition: all 500ms ease-in-out;
+        animation: 2.5s ease normal forwards 1 fadein;
+      }
+
+      .content {
+        position: absolute;
+        top: 20%;
+        padding-left: 2%;
+        margin: 0 3%;
+        width: 45%;
+        font-size: 1em;
+        letter-spacing: 0.1rem;
+        line-height: 140%;
+        white-space: pre-wrap;
+
+        @media screen and (max-width: 900px) {
+          margin: 0 10%;
+          font-size: 0.9em;
+        }
+
+        @media screen and (max-width: 700px) {
+          font-size: 0.8em;
+        }
+
+        @media screen and (max-width: 600px) {
+          width: 60%;
+        }
+      }
+    } /* .trapezoid-left */
+
+    .trapezoid-right {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-image: url("../img/pendules.jpg");
+      background-size: cover;
+      clip-path: polygon(100% 0, 51% 0, 81% 100%, 100% 100%);
+
+      @media screen and (max-width: 600px) {
+        display: none;
+      }
+    } /* .trapezoid-right */
+
+    .section-title {
+      position: absolute;
+      background-color: $color-3;
+      bottom: 10%;
+      height: 8%;
+      width: 25%;
+
+      h2 {
+        font-family: "Lobster", cursive;
+        position: absolute;
+        font-size: 2.5em;
+        left: 25%;
+        margin-top: 0;
+        color: $color-1;
+      }
+
+      @media screen and (max-width: 800px) {
+        bottom: 6%;
+        height: 6%;
+        width: 40%;
+        h2 {
+          font-size: 2em;
+          left: 15%;
+        }
+      }
+
+      @media screen and (max-width: 600px) {
+        bottom: 6%;
+        height: 6%;
+        width: 40%;
+        h2 {
+          font-size: 2em;
+          left: 15%;
+        }
+      }
+    } /* .section-title */
+  } /* &.section1 */
+
+  //-----------------------------------------------------------------------------------------/
+  //-------------------------  Section 2  ---------------------------------------------------/
 
   &.section2 {
-    background-color: green;
-  }
+    position: relative;
+    background-image: url("../img/atelier-rouge.jpg");
+    background-size: cover;
+    transition: all 500ms ease-in-out;
+    animation: 2.5s ease normal forwards 1 fadein;
+
+    &.isChanging {
+      filter: grayscale(80%);
+      transition: all 500ms ease-in-out;
+      animation: 2.5s ease normal forwards 1 fadein;
+    }
+
+    &.menuIsOpen {
+      left: 25%;
+      transition: all 500ms ease-in-out;
+      animation: 2.5s ease normal forwards 1 fadein;
+    } /* menuIsOpen */
+
+    .change {
+      position: absolute;
+
+      .profil-picture {
+        position: absolute;
+        left: 50%;
+        margin-top: 13%;
+        transform: translate(-65%, -50%);
+        background-image: url("../img/jf.jpg");
+        clip-path: circle(50% at 50% 50%);
+        background-size: cover;
+        height: 150px;
+        width: 150px;
+        transition: all 500ms ease-in-out;
+        animation: 2.5s ease normal forwards 1 fadein;
+
+        @media screen and (max-width: 1000px) {
+          height: 100px;
+          width: 100px;
+          margin-top: 20%;
+        }
+        @media screen and (max-width: 600px) {
+          margin-top: 30%;
+        }
+
+        @media screen and (max-width: 500px) {
+          margin-top: 40%;
+        }
+
+        @media screen and (max-width: 400px) {
+          height: 80px;
+          width: 80px;
+          margin-top: 45%;
+        } /* .profil-picture */
+      } /* .profil-picture */
+
+      .content {
+        display: inline-block;
+        margin-top: 25%;
+        width: 100%;
+        margin: 20% 0;
+        transition: all 500ms ease-in-out;
+        animation: 2.5s ease normal forwards 1 fadein;
+
+        @media screen and (max-width: 600px) {
+          margin: 30% 0 0;
+        }
+        @media screen and (max-width: 500px) {
+          margin: 40% 0 0;
+        }
+
+        h4 {
+          display: block;
+          color: $color-3;
+          text-align: center;
+          padding: 0 13%;
+          font-size: 0.9em;
+          letter-spacing: 0.1rem;
+          line-height: 140%;
+          white-space: pre-wrap;
+        } /* h4 */
+
+        h4::before {
+          content: open-quote;
+          font-size: 6em;
+        } /* h4::before */
+
+        h4::after {
+          position: absolute;
+          right: 38%;
+          content: close-quote;
+          font-size: 6em;
+        } /* h4::after */
+
+        &.menuIsOpen {
+          width: 55%;
+          margin-top: 22%;
+          transition: all 500ms ease-in-out;
+
+          h4 {
+            padding: 0 5%;
+            font-size: 0.8em;
+            line-height: 140%;
+          }
+
+          h4::after {
+            right: 24%;
+          }
+        } /* &.menuIsOpen */
+
+        // ------------------------------------------------------------- //
+        // -----------  Responsive  ------------------------------------ //
+
+        @media screen and (max-width: 1450px) {
+          h4::after {
+            right: 36%;
+          }
+        }
+
+        @media screen and (max-width: 1200px) {
+          h4::after {
+            right: 32%;
+          }
+        }
+
+        @media screen and (max-width: 950px) {
+          h4::after {
+            right: 26%;
+          }
+        }
+
+        @media screen and (max-width: 700px) {
+          h4::after {
+            right: 23%;
+          }
+        }
+
+        @media screen and (max-width: 600px) {
+          h4::after {
+            right: 18%;
+          }
+        }
+
+        @media screen and (max-width: 500px) {
+          h4 {
+            font-size: 0.75em;
+          }
+          h4::after {
+            right: 10%;
+          }
+        }
+
+        @media screen and (max-width: 380px) {
+          .content {
+            margin: 60% 0;
+            h4 {
+              font-size: 0.7em;
+            }
+            h4::after {
+              right: 5%;
+            }
+          }
+        }
+      } /* .content */
+    } /* .change */
+
+    &.menuIsOpen {
+      filter: grayscale(80%);
+      transition: all 500ms ease-in-out;
+      animation: 2.5s ease normal forwards 1 fadein;
+    } /* &.menuIsOpen */
+  } /* &.section2 */
 
   &.section3 {
     background-color: orange;
-  }
+  } /* &.section3 */
 
+  // .change .isChanging = classes génériques à toutes les sections
   .change {
+    position: relative;
     height: 100%;
     transition: all 1s linear;
-    border: 0px solid white;
+    border: 0px solid $color-3;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+    transition: all 500ms ease-in-out;
+    animation: 2.5s ease normal forwards 1 fadein;
+
     &.isChanging {
       transition: all 1s linear;
-      border: 30px solid white;
+      border: 20px solid $color-3;
+      filter: grayscale(50%);
+      transition: all 500ms ease-in-out;
+      animation: 2.5s ease normal forwards 1 fadein;
+      pointer-events: none !important;
+    } /* &.isChanging */
+
+    @media screen and (max-width: 600px) {
+      &.isChanging {
+        transition: all 1s linear;
+        border: 10px solid $color-3;
+      }
     }
-  }
+  } /* .change */
 }

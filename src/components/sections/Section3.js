@@ -1,6 +1,5 @@
 import React, { useContext } from "react"
 import FirebaseContext from "../../firebase/context"
-import Scroller from "../Scroller"
 
 import "../../style/section.css"
 

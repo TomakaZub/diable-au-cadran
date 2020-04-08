@@ -9,13 +9,12 @@ export const Pager = () => {
   const sections = appContext.sections
 
   /**
-   * Permet de savoir si la section cible est inférieure à l'actuelle
+   * Permet de savoir si la section cible est supérieure à l'actuelle
    * Fonction utile pour contourner le décalage sur le pager et la class 'isChanging'
    * (l'eventListenner pour gérer la class active se base sur le haut de la page)
    * @param {*} section
    */
-  const isTargetSmaller = section => {
-    console.log(section)
+  const isTargetBigger = (section) => {
     const currentSection = sections.find(() => {
       return appContext.idActivSection
     })
@@ -27,7 +26,7 @@ export const Pager = () => {
     }
   }
 
-  const pagerPointsList = Object.keys(sections).map(key => {
+  const pagerPointsList = Object.keys(sections).map((key) => {
     return (
       <Link
         key={key}
@@ -36,34 +35,38 @@ export const Pager = () => {
         spy={true}
         smooth={true}
         offset={0}
-        duration={1000}
+        duration={1500}
         delay={1000}
         onClick={() =>
-          setAppContext(prev => {
+          setAppContext((prev) => {
             return {
               ...prev,
               idActivSection: sections[key].id,
-              isChanging: true
+              isChanging: true,
             }
           })
         }
         onSetInactive={() => {
-          if (!isTargetSmaller(sections[key])) {
-            setAppContext(prev => {
-              return {
-                ...prev,
-                isChanging: false
-              }
-            })
-          } else {
+          // console.log(sections[key])
+          if (isTargetBigger(sections[key])) {
             setTimeout(() => {
-              setAppContext(prev => {
+              setAppContext((prev) => {
                 return {
                   ...prev,
-                  isChanging: false
+                  isChanging: false,
                 }
               })
-            }, 1000)
+            }, 500)
+          } else {
+            console.log("long")
+            setTimeout(() => {
+              setAppContext((prev) => {
+                return {
+                  ...prev,
+                  isChanging: false,
+                }
+              })
+            }, 2000)
           }
         }}
       >
