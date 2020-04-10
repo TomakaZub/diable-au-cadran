@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import useBackground from "./../../utils/hooks/useBackground"
 import useTransition from "./../../utils/hooks/useTransition"
 import MapWrapper from "./../googleMaps/MapWrapper"
@@ -11,6 +11,10 @@ const Section3 = ({ section }) => {
   const filterFx = useBackground()
   const isChanging = useTransition()
 
+  const [userName, setUserName] = useState("")
+  const [email, setEmail] = useState("")
+  const [message, setMessage] = useState("")
+
   const layout = {
     labelCol: {
       sm: { span: 24 },
@@ -20,11 +24,24 @@ const Section3 = ({ section }) => {
     },
   }
 
+  const handleChange = (key, value) => {
+    let inputValue = {}
+    inputValue[key] = value
+
+    setEmail((prev) => {
+      return { ...prev, inputValue }
+    })
+  }
+
   const validateMessages = {
     required: "${label} is required!",
     types: {
       email: "${label} n'est pas un email valide.",
     },
+  }
+
+  const onFinish = (values) => {
+    console.log("submit")
   }
 
   if (section) {
@@ -49,7 +66,7 @@ const Section3 = ({ section }) => {
             <Form
               {...layout}
               name='nest-messages'
-              onFinish={() => console.log("onFinish")}
+              onFinish={onFinish}
               validateMessages={validateMessages}
               className='form-contact'
               labelAlign='left'
@@ -58,6 +75,7 @@ const Section3 = ({ section }) => {
                 name={["user", "name"]}
                 label='Nom + Prénom'
                 className='input-fied'
+                onChange={(e) => setUserName(e.target.value)}
                 rules={[
                   {
                     required: true,
@@ -69,6 +87,7 @@ const Section3 = ({ section }) => {
               <Form.Item
                 name={["user", "email"]}
                 label='Email'
+                onChange={(e) => setEmail(e.target.value)}
                 className='input-fied'
                 rules={[
                   {
@@ -80,12 +99,15 @@ const Section3 = ({ section }) => {
               </Form.Item>
               <Form.Item
                 name={["user", "message"]}
+                onChange={(e) => setMessage(e.target.value)}
                 label='Message'
                 className='input-fied'
               >
                 <Input.TextArea autoSize={{ minRows: 8 }} />
               </Form.Item>
-              <Button className='send-email-btn'>Envoyer un email</Button>
+              <Button htmlType='submit' className='send-email-btn'>
+                Envoyer un email
+              </Button>
             </Form>
           </div>
         </div>

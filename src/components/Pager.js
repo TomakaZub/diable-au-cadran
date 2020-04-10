@@ -37,6 +37,7 @@ export const Pager = () => {
         offset={0}
         duration={1500}
         delay={1000}
+        ignoreCancelEvents={true}
         onClick={() =>
           setAppContext((prev) => {
             return {
