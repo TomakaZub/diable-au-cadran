@@ -13,6 +13,10 @@ ul.pager-item {
   animation-fill-mode: forwards;
   cursor: pointer;
 
+  @media screen and (max-width: 850px) {
+    display: none;
+  }
+
   li.pager {
     display: block;
     margin-bottom: 20px;

@@ -59,8 +59,8 @@
 }
 
 .main-menu .list-item-menu.open {
-  background-color: #db0000;
-  padding-right: 15%;
+  background-color: #a00000;
+  padding-right: 25%;
   min-width: 30%;
   -webkit-transform: translateX(0%);
           transform: translateX(0%);

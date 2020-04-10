@@ -58,7 +58,6 @@ export const Pager = () => {
               })
             }, 500)
           } else {
-            console.log("long")
             setTimeout(() => {
               setAppContext((prev) => {
                 return {

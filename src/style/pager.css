@@ -1,3 +1,8 @@
+* {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
 html,
 body {
   background-color: white;
@@ -116,6 +121,12 @@ ul.pager-item {
           animation-fill-mode: forwards;
   cursor: pointer;
   /* li.pager */
+}
+
+@media screen and (max-width: 850px) {
+  ul.pager-item {
+    display: none;
+  }
 }
 
 ul.pager-item li.pager {

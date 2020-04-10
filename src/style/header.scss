@@ -19,6 +19,14 @@
     padding: 10px 0 10px 50px;
     color: $color-3;
     font-weight: bold;
+
+    &.hidden {
+      left: -200px;
+      animation-name: slide-to-the-left;
+      animation-duration: 1s;
+      animation-delay: 0.5s;
+      animation-fill-mode: forwards;
+    }
   } /* site-name */
 
   /* -------------------------------------------------------------------------------- */
@@ -34,8 +42,6 @@
 
   .btn-menu {
     cursor: pointer;
-    --longLineScale: 0.55;
-    --shortLineScale: 0.4;
     position: absolute;
     right: -100px;
     margin-top: 40px;
@@ -49,4 +55,11 @@
   .menu {
     color: $color-3;
   }
+
+  @media screen and (max-width: 680px) and (max-height: 480px) {
+    .site-name,
+    .btn-menu {
+      margin-top: 20px;
+    } /* site-name */
+  } /* @media screen */
 } /* .header */

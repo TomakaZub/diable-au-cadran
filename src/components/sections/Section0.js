@@ -1,5 +1,6 @@
-import React, { useContext, useEffect, useState } from "react"
-import FirebaseContext from "../../firebase/context"
+import React from "react"
+import useBackground from "./../../utils/hooks/useBackground"
+import useTransition from "./../../utils/hooks/useTransition"
 import Scroller from "../Scroller"
 import MouseTracker from "../MouseTracker"
 
@@ -7,32 +8,15 @@ import "../../style/section.css"
 import "../../style/mouseTracker.css"
 
 const Section0 = ({ section }) => {
-  const { appContext } = useContext(FirebaseContext)
-
-  const [menuClass, setMenuClass] = useState("red-pic")
-
-  useEffect(() => {
-    if (appContext.isMenuOpen) {
-      setMenuClass("nb-pic")
-    } else {
-      setMenuClass("red-pic")
-    }
-  }, [appContext.isMenuOpen])
+  const filterFx = useBackground()
+  const isChanging = useTransition()
 
   if (section) {
     return (
-      <div className={`section section${section.tech.order}  main-container `}>
+      <div className={`section section${section.tech.order} ${isChanging}`}>
+        <div className={`section-container ${filterFx}`}></div>
+        <MouseTracker />
         <Scroller />
-        <div
-          className={
-            appContext.isChanging
-              ? `change isChanging bg-pic ${menuClass}`
-              : `change bg-pic ${menuClass}`
-          }
-        >
-          <MouseTracker />
-          <Scroller />
-        </div>
       </div>
     )
   } else {

@@ -101,7 +101,7 @@ export const App = () => {
       // insertion du context --> Provider / Consumers>
       <FirebaseContext.Provider value={{ appContext, setAppContext, firebase }}>
         <Header />
-        <Pager cssGenerator={cssGenerator} />
+        <Pager />
         <div className='sections' style={cssContainer}>
           <Section0 section={appContext.sections[0]} />
           {/* <SectionBonus section={appContext.sections[0]} /> */}

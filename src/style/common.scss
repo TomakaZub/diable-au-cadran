@@ -1,5 +1,9 @@
 @import "./variables.scss";
 
+* {
+  box-sizing: content-box;
+}
+
 html,
 body {
   background-color: $color-3;

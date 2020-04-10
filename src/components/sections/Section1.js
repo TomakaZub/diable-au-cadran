@@ -1,36 +1,28 @@
-import React, { useContext } from "react"
-import { ParallaxProvider, Parallax } from "react-scroll-parallax"
-import FirebaseContext from "../../firebase/context"
+import React from "react"
+import useBackground from "./../../utils/hooks/useBackground"
+import useTransition from "./../../utils/hooks/useTransition"
 import { addLineBreaks } from "../../utils/textUtil"
 
 import "../../style/section.css"
 
 const Section1 = ({ section }) => {
-  const { appContext } = useContext(FirebaseContext)
+  const filterFx = useBackground()
+  const isChanging = useTransition()
 
   if (section) {
     return (
-      <div id='section1' className={`section section${section.tech.order}`}>
-        <div className={appContext.isChanging ? "change isChanging" : "change"}>
-          <ParallaxProvider>
-            <div
-              className={
-                appContext.isMenuOpen
-                  ? "trapezoid-left menuIsOpen"
-                  : "trapezoid-left"
-              }
-            >
-              <div className='content'>
-                <Parallax x={[-80, 80]}>
-                  {addLineBreaks(section.content)}{" "}
-                </Parallax>
-              </div>
-            </div>
-            <div className='trapezoid-right'></div>
-            <Parallax y={[0, 0]} className='section-title'>
-              <h2>{section.title}</h2>
-            </Parallax>
-          </ParallaxProvider>
+      <div
+        id='section1'
+        className={`section section${section.tech.order} ${isChanging}`}
+      >
+        <div className={`section-container ${filterFx}`}>
+          <div className='trapezoid-left'>
+            <div className='content'>{addLineBreaks(section.content)}</div>
+          </div>
+          <div className='trapezoid-right'></div>
+          <div className='section-title'>
+            <h2>{section.title}</h2>
+          </div>
         </div>
       </div>
     )
