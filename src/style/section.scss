@@ -420,37 +420,120 @@
 
     .section-container {
       display: flex;
-      justify-content: flex-start;
 
-      .form-contact {
-        padding-top: 10%;
-        flex-basis: 50%;
+      .right-side {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 60%;
+        align-items: start;
+        justify-items: center;
         width: 100%;
-        margin: 10px;
 
-        h1 {
-          margin-left: 60px;
-          color: $color-3;
+        .adress {
+          flex-basis: 30%;
+          padding: 40px 0 0 12%;
+
+          h3 {
+            color: $color-3;
+          }
         }
 
-        .input-fied {
-          margin-bottom: 5px;
-        }
+        .form-contact {
+          display: flex;
+          flex-direction: column;
+          padding-top: 10%;
+          flex-basis: 70%;
+          width: 100%;
+          padding: 0 14% 0 12%;
 
-        .ant-form-item {
-          padding: 10px 80px 0 60px;
-        }
+          .input-fied {
+            margin-bottom: 5px;
+            label {
+              color: white;
+            }
+          } /* .input-fied */
 
-        .ant-form-item-label > label {
-          color: white;
-        }
+          .send-email-btn {
+            width: 100%;
+            padding: 0;
+          }
+        } /* .form-contact */
       }
 
-      .map {
-        flex-basis: 50%;
+      .left-side {
+        flex-basis: 40%;
         width: 100%;
       }
-    }
+    } /* .section-container */
+
+    // ---------------------------------------------------------------------------------------
+    // ------------------------  Responsive  -------------------------------------------------
+
+    // ********************************************************************
+    // *** Smartphone - paysage
+    // ********************************************************************
+    @media screen and (max-width: 900px) and (max-height: 480px) {
+      .section-container {
+        .right-side {
+          font-size: 0.5em;
+          .adress {
+            display: none;
+          }
+          .form-contact {
+            margin-top: 20px;
+            padding: 0 25% 0 10%;
+
+            .ant-form-item-label {
+              padding: 0;
+            }
+
+            textarea {
+              height: 100px;
+              min-height: 100px;
+            }
+          }
+        }
+      }
+    } /* @media screen and (max-width: 900px) and (max-height: 480px) */
+
+    // ********************************************************************
+    // *** Smartphone - portrait
+    // ********************************************************************
+    @media screen and (max-width: 480px) and (max-height: 900px) {
+      .section-container {
+        flex-direction: column;
+        .right-side {
+          .adress {
+            padding-top: 10px;
+            h3 {
+              font-size: 1em;
+            }
+          }
+          .form-contact {
+            margin-bottom: 10%;
+
+            .input-fied {
+              .ant-form-item-label {
+                padding: 0;
+                label {
+                  color: white;
+                }
+              }
+              textarea {
+                height: 120px !important;
+                min-height: 120px !important;
+              }
+            }
+          } /* .form-contact */
+        } /* .right-side */
+      } /* .section-container */
+    } /* @media screen and (max-width: 480px) and (max-height: 900px) */
+
+    // ********************************************************************
+    // *** Smartphone - portrait (screen pas très haut)
+    // ********************************************************************
+    @media screen and (max-width: 480px) and (max-height: 680px) {
+    } /* @media screen and (max-width: 480px) and (max-height: 680px) */
   } /* &.section3 */
 
   // .section-container .isChanging = classes génériques à toutes les sections

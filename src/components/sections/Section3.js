@@ -34,52 +34,60 @@ const Section3 = ({ section }) => {
         className={`section section${section.tech.order} ${isChanging}`}
       >
         <div className={`section-container ${filterFx}`}>
-          <div className='map'>
+          <div className='left-side'>
             {/* <div>Adresse</div> */}
             <MapWrapper />
             {/* <div>Map</div> */}
           </div>
-          <Form
-            {...layout}
-            name='nest-messages'
-            onFinish={() => console.log("onFinish")}
-            validateMessages={validateMessages}
-            className='form-contact'
-            labelAlign='left'
-          >
-            <h1>Contact</h1>
-            <Form.Item
-              name={["user", "name"]}
-              label='Nom + Prénom'
-              className='input-fied'
-              rules={[
-                {
-                  required: true,
-                },
-              ]}
+          <div className='right-side'>
+            <div className='adress'>
+              <h1>Contact</h1>
+              <h3>17 rue de la Vicomte</h3>
+              <h3>61200 Argentan</h3>
+              <h3>02 33 36 07 93</h3>
+            </div>
+            <Form
+              {...layout}
+              name='nest-messages'
+              onFinish={() => console.log("onFinish")}
+              validateMessages={validateMessages}
+              className='form-contact'
+              labelAlign='left'
             >
-              <Input />
-            </Form.Item>
-            <Form.Item
-              name={["user", "email"]}
-              label='Email'
-              className='input-fied'
-              rules={[
-                {
-                  type: "email",
-                },
-              ]}
-            >
-              <Input />
-            </Form.Item>
-            <Form.Item
-              name={["user", "message"]}
-              label='Message'
-              className='input-fied'
-            >
-              <Input.TextArea autoSize={{ minRows: 10 }} />
-            </Form.Item>
-          </Form>
+              <Form.Item
+                name={["user", "name"]}
+                label='Nom + Prénom'
+                className='input-fied'
+                rules={[
+                  {
+                    required: true,
+                  },
+                ]}
+              >
+                <Input />
+              </Form.Item>
+              <Form.Item
+                name={["user", "email"]}
+                label='Email'
+                className='input-fied'
+                rules={[
+                  {
+                    type: "email",
+                  },
+                ]}
+              >
+                <Input />
+              </Form.Item>
+              <Form.Item
+                name={["user", "message"]}
+                label='Message'
+                className='input-fied'
+              >
+                <Input.TextArea autoSize={{ minRows: 8 }} />
+              </Form.Item>
+              <Button className='send-email-btn'>Envoyer un email</Button>
+            </Form>
+          </div>
         </div>
       </div>
     )
