@@ -1,6 +1,7 @@
-import React, { useContext, useState } from "react"
+import React, { useContext } from "react"
 import FirebaseContext from "../../firebase/context"
-import "../../style/menu.css"
+import "./style/style.css"
+
 import { Menu as Component } from "./Menu"
 
 const Menu = () => {

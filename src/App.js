@@ -1,65 +1,35 @@
 import React, { useState, useEffect } from "react"
 import firebase, { FirebaseContext } from "./firebase"
-import ReactPageScroller from "react-page-scroller"
-import { FullPage, Slide } from "react-full-page"
-import Loading from "./components/Loading"
-import Sections from "./components/sections/Sections"
-// import Scroller from "./components/Scroller"
-import Section0 from "./components/sections/Section0"
-import SectionBonus from "./components/sections/SectionBonus"
-import Section1 from "./components/sections/Section1"
-import Section2 from "./components/sections/Section2"
-import Section3 from "./components/sections/Section3"
-import { Pager } from "./components/Pager"
-import Header from "./components/Header"
+import Loading from "./components/UX-UI/loading/Loading"
+import HomePage from "./components/sections/homePage/HomePage"
+import Service from "./components/sections/service/Service"
+import SavoirFaire from "./components/sections/savoirFaire/SavoirFaire"
+import Contact from "./components/sections/contact/Contact"
+import { Pager } from "./components/UX-UI/pager/Pager"
+import Header from "./components/header/Header"
 
 import "./style/common.css"
 
+// Context de l'application
 const INITIAL_CONTEXT = {
-  isChanging: false,
-  isMenuOpen: false,
-  idActivSection: "t6bys0zleWutaW74BnTu",
-  sections: {},
+  isChanging: false, // si l'utilisateur change de section
+  isMenuOpen: false, // si l'utilisateur ouvre la section
+  idActivSection: "t6bys0zleWutaW74BnTu", // id de la première section
+  sections: {}, // obj avec les objets des sections
+  globalSettings: {},
 }
 
 export const App = () => {
   const [appContext, setAppContext] = useState(INITIAL_CONTEXT)
-  const [currentSection, setCurrentSection] = useState(0)
-  const [cssContainer, setCssContainer] = useState()
-
-  const cssGenerator = (key) => {
-    const axeY = (key / 2) * -100
-    const css = {
-      transition: "transform 700ms ease 500ms",
-      backfaceVisibility: "hidden",
-      transform: `translate3d(0px, ${axeY}%, 0px)`,
-    }
-    setCssContainer(css)
-  }
-
-  useEffect(() => {
-    handlePageChange(currentSection)
-  }, [currentSection])
-
-  // useEffect(() => {
-  //   const scrollTo = async e => {
-  //     setAppContext(prev => {
-  //       return { ...prev, isChanging: true, idActivSection: sections[key].id }
-  //     })
-  //   }
-  //   window.addEventListener("scroll", scrollTo)
-
-  //   return () => window.removeEventListener("scroll", scrollTo)
-  // }, [])
 
   /**
-   * Met à jour le context avec les données reçues de firebase.
+   * Met à jour le context (sections) avec les données reçues de firebase.
    * Injection des sections dans le context.
    * @param {*} snapshot
    */
-  const updateContextWithFirebase = (snapshot) => {
+  const updateSectionsContextWithFirebase = (snapshot) => {
     let count = 0
-    const sectionsWithAppContext = snapshot.docs.map((doc) => {
+    const sections = snapshot.docs.map((doc) => {
       const section = {
         id: doc.id,
         isActive: count === 0 ? true : false,
@@ -70,30 +40,51 @@ export const App = () => {
     })
 
     setAppContext((prev) => {
-      return { ...prev, sections: sectionsWithAppContext }
+      return { ...prev, sections: sections }
     })
   }
 
   /**
-   * Met à jour le context avec la database (firebase).
+   * Met à jour le context (globalSettings) avec les données reçues de firebase.
+   * Injection des sections dans le context.
+   * @param {*} snapshot
+   */
+  const updateGlobalSettingsContextWithFirebase = (snapshot) => {
+    const settings = snapshot.docs.map((doc) => {
+      return doc.data()
+    })
+
+    setAppContext((prev) => {
+      return { ...prev, globalSettings: settings }
+    })
+  }
+
+  /**
+   * Met à jour le context avec les données (firebase).
    */
   useEffect(() => {
     const getSections = () => {
       firebase.db
         .collection("sections")
         .orderBy("tech.order", "asc")
-        .onSnapshot(updateContextWithFirebase)
+        .onSnapshot(updateSectionsContextWithFirebase)
     }
-    return getSections()
+
+    const getGlobalSettings = () => {
+      firebase.db
+        .collection("global")
+        .onSnapshot(updateGlobalSettingsContextWithFirebase)
+    }
+
+    const doIt = () => {
+      getSections()
+      getGlobalSettings()
+      console.log("doIt")
+    }
+
+    return doIt()
   }, [firebase])
 
-  const handlePageChange = (key) => {
-    if (appContext.sections.length) {
-      setAppContext((prev) => {
-        return { ...prev, idActivSection: appContext.sections[key].id }
-      })
-    }
-  }
   if (!appContext.sections[0]) {
     return <Loading />
   } else {
@@ -102,12 +93,11 @@ export const App = () => {
       <FirebaseContext.Provider value={{ appContext, setAppContext, firebase }}>
         <Header />
         <Pager />
-        <div className='sections' style={cssContainer}>
-          <Section0 section={appContext.sections[0]} />
-          {/* <SectionBonus section={appContext.sections[0]} /> */}
-          <Section1 section={appContext.sections[1]} />
-          <Section2 section={appContext.sections[2]} />
-          <Section3 section={appContext.sections[3]} />
+        <div className='sections'>
+          <HomePage section={appContext.sections[0]} />
+          <Service section={appContext.sections[1]} />
+          <SavoirFaire section={appContext.sections[2]} />
+          <Contact section={appContext.sections[3]} />
         </div>
       </FirebaseContext.Provider>
     )

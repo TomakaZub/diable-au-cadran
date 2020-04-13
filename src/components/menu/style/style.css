@@ -1,0 +1,84 @@
+@import url(/Users/aguirregabiria/Desktop/React/diable-au-cadran-v2/src/style/common.css);
+/* -------------------------------------------------------------------------------- */
+/* ------------------------------------- MENU ------------------------------------- */
+.main-menu {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  width: 100%;
+  /* .list-item-menu */
+  /* .list-item-menu.open */
+}
+
+.main-menu .list-item-menu {
+  background-color: #a00000;
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  min-width: 50%;
+  padding: 10% 15% 0 10%;
+  -webkit-transform: translateX(100%) translateZ(0px);
+  transform: translateX(100%) translateZ(0px);
+  -webkit-transition: -webkit-transform 500ms ease-in-out;
+  transition: -webkit-transform 500ms ease-in-out;
+  transition: transform 500ms ease-in-out;
+  transition: transform 500ms ease-in-out, -webkit-transform 500ms ease-in-out;
+  /* li.item-menu */
+  /* .adress */
+}
+
+.main-menu .list-item-menu li.item-menu {
+  color: white;
+  display: block;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 2em;
+}
+
+.main-menu .list-item-menu li.item-menu.active {
+  color: #0d0d0d;
+}
+
+.main-menu .list-item-menu .adress {
+  font-size: 1.4em;
+  color: white;
+  padding: 150px 10px;
+}
+
+.main-menu .list-item-menu .adress p {
+  padding: 5px 0;
+}
+
+@media screen and (max-width: 480px) and (max-height: 900px) {
+  .main-menu .list-item-menu {
+    padding: 25% 15% 0 15%;
+  }
+}
+
+@media screen and (max-width: 900px) and (max-height: 480px) {
+  .main-menu .list-item-menu {
+    padding: 8% 10% 0 5%;
+  }
+  .main-menu .list-item-menu li.item-menu {
+    font-size: 1em;
+  }
+  .main-menu .list-item-menu .adress {
+    font-size: 1em;
+    padding: 30% 10px;
+  }
+}
+
+.main-menu .list-item-menu.open {
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+}
+
+@media screen and (max-width: 480px) {
+  .main-menu .list-item-menu.open {
+    min-width: 100%;
+  }
+}
+
+/* .main-menu */
+/*# sourceMappingURL=style.css.map */

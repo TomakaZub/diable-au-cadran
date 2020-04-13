@@ -4,6 +4,10 @@ import "firebase/auth"
 
 import firebaseConfig from "./config"
 
+/**
+ * Class servant d'interface avec Firebase
+ * Initialisation database, authentification facebook
+ */
 class Firebase {
   constructor() {
     app.initializeApp(firebaseConfig)
@@ -12,7 +16,7 @@ class Firebase {
     this.auth = app.auth()
   }
 
-  login = async provider => {
+  login = async (provider) => {
     await this.auth.signInWithPopup(this[`${provider}Provider`])
   }
 

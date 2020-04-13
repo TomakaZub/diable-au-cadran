@@ -1,4 +1,6 @@
 @import "./variables.scss";
+@import url("https://fonts.googleapis.com/css?family=Muli");
+@import url("https://fonts.googleapis.com/css?family=Lobster");
 
 * {
   box-sizing: content-box;
@@ -16,6 +18,61 @@ body {
   }
 }
 
+// ********************************************************************************/
+// ***********     Section      ************************************************/
+// ********************************************************************************/
+
+.section {
+  height: 100vh;
+  width: 100%;
+  background-color: $color-3;
+  border: 10px solid $color-3;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  overflow: hidden;
+  font-family: "Muli", cursive;
+  transition: all 0.5s linear;
+
+  // Dès qu'un utilisateur clique sur le pager ou un item menu
+  &.isChanging {
+    transition: all 0.5s linear;
+    border: 20px solid $color-3;
+    pointer-events: none !important;
+  } /* &.isChanging */
+
+  .section-container {
+    position: relative;
+    height: 100%;
+    transition: all 1s linear;
+    border: 0px solid $color-3;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    transition: all 500ms ease-in-out;
+    animation: 2.5s ease normal forwards 1 fadein;
+
+    // Dès qu'un utilisateur active le menu latéral
+    &.filterFx {
+      filter: grayscale(80%);
+      transition: all 500ms ease-in-out;
+      animation: 2.5s ease normal forwards 1 fadein;
+    } /* filterFx */
+  } /* .section-container */
+
+  @media screen and (max-width: 900px) {
+    border: 5px solid $color-3;
+
+    &.isChanging {
+      border: 15px solid $color-3;
+    } /* &.isChanging */
+  }
+}
+
+// ********************************************************************************/
+// ***********     Key Frames      ************************************************/
+// ********************************************************************************/
+
 // utilisé sur la home page
 @keyframes slide-to-the-left {
   to {
@@ -24,12 +81,20 @@ body {
 }
 
 // utilisé sur la home page
-@keyframes slide-to-the-right {
+@keyframes slide-page-to-left {
   to {
-    left: 0px;
+    left: -200px;
   }
 }
 
+// utilisé sur la home page
+@keyframes slide-to-the-right {
+  to {
+    left: 50px;
+  }
+}
+
+// utilisé sur la home page
 @keyframes slide-to-the-top {
   to {
     bottom: 15%;

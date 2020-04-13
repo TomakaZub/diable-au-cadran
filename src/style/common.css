@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Muli");
+@import url("https://fonts.googleapis.com/css?family=Lobster");
 * {
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
@@ -14,6 +16,64 @@ body #root .container {
   position: relative;
 }
 
+.section {
+  height: 100vh;
+  width: 100%;
+  background-color: white;
+  border: 10px solid white;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  overflow: hidden;
+  font-family: "Muli", cursive;
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+  /* &.isChanging */
+  /* .section-container */
+}
+
+.section.isChanging {
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+  border: 20px solid white;
+  pointer-events: none !important;
+}
+
+.section .section-container {
+  position: relative;
+  height: 100%;
+  -webkit-transition: all 1s linear;
+  transition: all 1s linear;
+  border: 0px solid white;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -webkit-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
+  -webkit-animation: 2.5s ease normal forwards 1 fadein;
+          animation: 2.5s ease normal forwards 1 fadein;
+  /* filterFx */
+}
+
+.section .section-container.filterFx {
+  -webkit-filter: grayscale(80%);
+          filter: grayscale(80%);
+  -webkit-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
+  -webkit-animation: 2.5s ease normal forwards 1 fadein;
+          animation: 2.5s ease normal forwards 1 fadein;
+}
+
+@media screen and (max-width: 900px) {
+  .section {
+    border: 5px solid white;
+    /* &.isChanging */
+  }
+  .section.isChanging {
+    border: 15px solid white;
+  }
+}
+
 @-webkit-keyframes slide-to-the-left {
   to {
     right: 50px;
@@ -26,15 +86,27 @@ body #root .container {
   }
 }
 
+@-webkit-keyframes slide-page-to-left {
+  to {
+    left: -200px;
+  }
+}
+
+@keyframes slide-page-to-left {
+  to {
+    left: -200px;
+  }
+}
+
 @-webkit-keyframes slide-to-the-right {
   to {
-    left: 0px;
+    left: 50px;
   }
 }
 
 @keyframes slide-to-the-right {
   to {
-    left: 0px;
+    left: 50px;
   }
 }
 

@@ -1,3 +1,7 @@
+/** ATTENTION : ne pas exposer
+ *
+ * Configuration Firebase (à retrouver sur l'interface Firebase)
+ */
 const firebaseConfig = {
   apiKey: "AIzaSyCM0yhnbDdf3-s-RFx7RgtbjnnDn7a6-IU",
   authDomain: "diable-au-cadran.firebaseapp.com",
@@ -5,7 +9,7 @@ const firebaseConfig = {
   projectId: "diable-au-cadran",
   storageBucket: "diable-au-cadran.appspot.com",
   messagingSenderId: "184266775318",
-  appId: "1:184266775318:web:b208900e37b9d522aace37"
+  appId: "1:184266775318:web:b208900e37b9d522aace37",
 }
 
 export default firebaseConfig

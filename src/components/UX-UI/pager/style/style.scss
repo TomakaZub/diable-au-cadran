@@ -1,0 +1,44 @@
+@import "../../../../style/common.css";
+
+ul.pager-item {
+  position: fixed;
+  z-index: 1;
+  right: -100px;
+  top: 50%;
+  margin: 0;
+  list-style: none;
+  animation-name: slide-to-the-left;
+  animation-duration: 1s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  cursor: pointer;
+
+  @media screen and (max-width: 850px) {
+    display: none;
+  }
+
+  li.pager {
+    display: block;
+    margin-bottom: 20px;
+    width: 3px;
+    height: 3px;
+    background: white;
+    background-clip: padding-box;
+    border: 5px solid transparent;
+    border-radius: 50%;
+    transition: all 300ms linear;
+
+    &:hover {
+      border: 5px solid rgba(255, 255, 255, 0.582);
+      background: black;
+    }
+  } /* li.pager */
+
+  .active,
+  .active-top {
+    li.pager {
+      background: black;
+      border: 5px solid white;
+    }
+  }
+} /* ul.pager-item  */
