@@ -8,7 +8,6 @@ import "./style/style.css"
 const SavoirFaire = ({ section }) => {
   const filterFx = useBackground()
   const isChanging = useTransition()
-
   if (section) {
     return (
       <div

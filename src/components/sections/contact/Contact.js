@@ -10,7 +10,6 @@ import "./style/style.css"
 const Contact = ({ section }) => {
   const filterFx = useBackground()
   const isChanging = useTransition()
-
   // const [userName, setUserName] = useState("")
   // const [email, setEmail] = useState("")
   // const [message, setMessage] = useState("")
@@ -34,6 +33,7 @@ const Contact = ({ section }) => {
   // }
 
   const validateMessages = {
+    // eslint-disable-next-line no-template-curly-in-string
     required: "${label} est nécéssaire.",
     types: {
       email: "Ce n'est pas un email valide.",

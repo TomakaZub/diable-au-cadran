@@ -10,10 +10,11 @@ export const Menu = ({ setAppContext, appContext }) => {
         }
       >
         <ul>
-          {Object.keys(appContext.sections).map(key => {
+          {Object.keys(appContext.sections).map((key) => {
             const section = appContext.sections[key]
             return (
               <Link
+                key={key}
                 to={`section${key}`}
                 spy={true}
                 smooth={true}
@@ -28,12 +29,12 @@ export const Menu = ({ setAppContext, appContext }) => {
                       : "item-menu"
                   }
                   onClick={() =>
-                    setAppContext(prev => {
+                    setAppContext((prev) => {
                       return {
                         ...prev,
                         idActivSection: section.id,
                         isChanging: true,
-                        isMenuOpen: false
+                        isMenuOpen: false,
                       }
                     })
                   }
@@ -53,10 +54,10 @@ export const Menu = ({ setAppContext, appContext }) => {
       <div
         className={appContext.isOpenMenu ? "btn-menu open" : "btn-menu"}
         onClick={() =>
-          setAppContext(prev => {
+          setAppContext((prev) => {
             return {
               ...prev,
-              isMenuOpen: !prev.isMenuOpen
+              isMenuOpen: !prev.isMenuOpen,
             }
           })
         }

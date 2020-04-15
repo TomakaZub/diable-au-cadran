@@ -19,7 +19,6 @@ class Firebase {
   login = async (provider) => {
     await this.auth.signInWithPopup(this[`${provider}Provider`])
   }
-
   logout = async () => await this.auth.signOut()
 }
 

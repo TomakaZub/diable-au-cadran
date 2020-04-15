@@ -19,9 +19,12 @@ const MouseTracker = () => {
         y = 0
       x += (-followX - x) * state.friction
       y += (followY - y) * state.friction
-      setState({
-        offsetX: x,
-        offsetY: y,
+      // setState({
+      //   offsetX: x,
+      //   offsetY: y,
+      // })
+      setState((prevState) => {
+        return { ...prevState, offsetX: x, offsetY: y }
       })
     }
 
@@ -30,7 +33,7 @@ const MouseTracker = () => {
     return () => {
       document.removeEventListener("mousemove", _mouseMove)
     }
-  }, [])
+  }, [state])
 
   let offset = {
     transform: `translate(-50%, -50%) perspective(600px)

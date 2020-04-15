@@ -13,7 +13,6 @@ import "./style/style.css"
 const HomePage = ({ section }) => {
   const filterFx = useBackground()
   const isChanging = useTransition()
-
   if (section) {
     return (
       <div

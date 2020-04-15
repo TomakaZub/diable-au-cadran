@@ -12,10 +12,10 @@ const useBackground = () => {
   const [cssClass, setCssClass] = useState("")
 
   useEffect(() => {
-    if (appContext.isMenuOpen) {
+    if (appContext.isMenuOpen || appContext.isChanging) {
       setCssClass("filterFx")
     } else setCssClass("")
-  }, [appContext.isMenuOpen])
+  }, [appContext.isMenuOpen, appContext.isChanging])
 
   return cssClass
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+// import ReactPageScroller from "react-page-scroller"
 import firebase, { FirebaseContext } from "./firebase"
 import Loading from "./components/UX-UI/loading/Loading"
 import HomePage from "./components/sections/homePage/HomePage"
@@ -31,9 +32,9 @@ export const App = () => {
     let count = 0
     const sections = snapshot.docs.map((doc) => {
       const section = {
-        id: doc.id,
-        isActive: count === 0 ? true : false,
-        ...doc.data(),
+        id: doc.id, // on ajoute l'identifiant du document dans la section
+        isActive: count === 0 ? true : false, // on ajoute la possibilité de savoir si la section est active ou non
+        ...doc.data(), // on ajoute le reste des données
       }
       count++
       return section
@@ -63,14 +64,14 @@ export const App = () => {
    * Met à jour le context avec les données (firebase).
    */
   useEffect(() => {
-    const getSections = () => {
+    const getSections = async () => {
       firebase.db
         .collection("sections")
         .orderBy("tech.order", "asc")
         .onSnapshot(updateSectionsContextWithFirebase)
     }
 
-    const getGlobalSettings = () => {
+    const getGlobalSettings = async () => {
       firebase.db
         .collection("global")
         .onSnapshot(updateGlobalSettingsContextWithFirebase)
@@ -79,25 +80,26 @@ export const App = () => {
     const doIt = () => {
       getSections()
       getGlobalSettings()
-      console.log("doIt")
     }
-
     return doIt()
-  }, [firebase])
+  }, [])
 
-  if (!appContext.sections[0]) {
+  if (!appContext.sections.length) {
     return <Loading />
   } else {
     return (
-      // insertion du context --> Provider / Consumers>
       <FirebaseContext.Provider value={{ appContext, setAppContext, firebase }}>
         <Header />
         <Pager />
         <div className='sections'>
+          {/* <ReactPageScroller
+          customPageNumber={this.state.currentPage}
+          > */}
           <HomePage section={appContext.sections[0]} />
           <Service section={appContext.sections[1]} />
           <SavoirFaire section={appContext.sections[2]} />
-          <Contact section={appContext.sections[3]} />
+          <Contact section={appContext.sections[3]} /> */}
+          {/* </ReactPageScroller> */}
         </div>
       </FirebaseContext.Provider>
     )

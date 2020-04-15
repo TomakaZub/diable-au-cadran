@@ -6,27 +6,7 @@ import "./style/style.css"
 export const Pager = () => {
   const { appContext, setAppContext } = useContext(FirebaseContext)
 
-  const sections = appContext.sections
-
-  /**
-   * Permet de savoir si la section cible est supérieure à l'actuelle
-   * Fonction utile pour contourner le décalage sur le pager et la class 'isChanging'
-   * (l'eventListenner pour gérer la class active se base sur le haut de la page)
-   * @param {*} section
-   */
-  const isTargetBigger = (section) => {
-    const currentSection = sections.find(() => {
-      return appContext.idActivSection
-    })
-
-    if (section.tech.order > currentSection.tech.order) {
-      return true
-    } else {
-      return false
-    }
-  }
-
-  const pagerPointsList = Object.keys(sections).map((key) => {
+  const pagerPointsList = Object.keys(appContext.sections).map((key) => {
     return (
       <Link
         key={key}
@@ -42,32 +22,20 @@ export const Pager = () => {
           setAppContext((prev) => {
             return {
               ...prev,
-              idActivSection: sections[key].id,
+              idActivSection: appContext.sections[key].id,
               isChanging: true,
             }
           })
         }
         onSetInactive={() => {
-          // console.log(sections[key])
-          if (isTargetBigger(sections[key])) {
-            setTimeout(() => {
-              setAppContext((prev) => {
-                return {
-                  ...prev,
-                  isChanging: false,
-                }
-              })
-            }, 500)
-          } else {
-            setTimeout(() => {
-              setAppContext((prev) => {
-                return {
-                  ...prev,
-                  isChanging: false,
-                }
-              })
-            }, 2000)
-          }
+          setTimeout(() => {
+            setAppContext((prev) => {
+              return {
+                ...prev,
+                isChanging: false,
+              }
+            })
+          }, 500)
         }}
       >
         <li key={key} className={`pager section-${key} `} />
