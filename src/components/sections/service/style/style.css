@@ -21,7 +21,6 @@
           align-items: center;
   /* .trapezoid-left */
   /* .trapezoid-right */
-  /* .section-title */
   /* @media screen and (max-width: 480px) and (max-height: 680px) */
   /* @media screen and (max-width: 480px) and (max-height: 680px) */
   /* @media screen and (max-width: 480px) and (max-height: 680px) */
@@ -73,40 +72,8 @@
           animation: 2.5s ease normal forwards 1 fadein;
 }
 
-.section1.service .section-container .section-title {
-  position: absolute;
-  background-color: white;
-  bottom: 10%;
-  height: 5%;
-  width: 20%;
-  left: 0;
-  /* h2 */
-}
-
-.section1.service .section-container .section-title h2 {
-  font-family: "Lobster", cursive;
-  position: absolute;
-  font-size: 3em;
-  left: 25%;
-  margin-top: 0;
-  color: #0d0d0d;
-}
-
-@media screen and (max-height: 1000px) {
-  .section1.service .section-container {
-    /* .section-title */
-  }
-  .section1.service .section-container .section-title {
-    height: 5%;
-  }
-  .section1.service .section-container .section-title h2 {
-    font-size: 2em;
-  }
-}
-
 @media screen and (max-width: 900px) {
   .section1.service .section-container {
-    /* .section-title */
     /* .section-title */
   }
   .section1.service .section-container .trapezoid-left {
@@ -119,12 +86,6 @@
   }
   .section1.service .section-container .trapezoid-right {
     display: none;
-  }
-  .section1.service .section-container .section-title {
-    width: 25%;
-  }
-  .section1.service .section-container .section-title h2 {
-    font-size: 2em;
   }
 }
 
@@ -141,7 +102,6 @@
 @media screen and (max-width: 900px) and (max-height: 480px) {
   .section1.service .section-container {
     /* .trapezoid-left */
-    /* .section-title */
   }
   .section1.service .section-container .trapezoid-left .content {
     margin-top: 13%;
@@ -149,33 +109,17 @@
     letter-spacing: 0rem;
     line-height: 120%;
   }
-  .section1.service .section-container .section-title {
-    bottom: 8%;
-    left: 80%;
-  }
-  .section1.service .section-container .section-title h2 {
-    font-size: 1.3em;
-  }
 }
 
 @media screen and (max-width: 480px) and (max-height: 900px) {
   .section1.service .section-container {
     /* .trapezoid-left */
-    /* .section-title */
   }
   .section1.service .section-container .trapezoid-left .content {
     margin: 30% 15% 0;
     font-size: 0.9em;
     letter-spacing: 0rem;
     line-height: 140%;
-  }
-  .section1.service .section-container .section-title {
-    height: 5%;
-    width: 45%;
-    left: 50px;
-  }
-  .section1.service .section-container .section-title h2 {
-    font-size: 1.5em;
   }
 }
 
@@ -199,9 +143,6 @@
     letter-spacing: 0rem;
     line-height: 140%;
   }
-  .section1.service .section-container .section-title {
-    left: 80%;
-  }
 }
 
 @media screen and (max-height: 480px) {
@@ -213,9 +154,6 @@
     font-size: 0.7em;
     letter-spacing: 0rem;
     line-height: 140%;
-  }
-  .section1.service .section-container .section-title {
-    height: 30px;
   }
 }
 

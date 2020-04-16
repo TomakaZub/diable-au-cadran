@@ -1,13 +1,9 @@
 import React from "react"
-import useBackground from "../../../utils/hooks/useBackground"
-import useTransition from "../../../utils/hooks/useTransition"
 import { addLineBreaks } from "../../../utils/textUtil"
 
 import "./style/style.css"
 
-const Service = ({ section }) => {
-  const filterFx = useBackground()
-  const isChanging = useTransition()
+const Service = ({ section, isChanging, filterFx }) => {
   if (section) {
     return (
       <div
@@ -18,9 +14,6 @@ const Service = ({ section }) => {
             <div className='content'>{addLineBreaks(section.content)}</div>
           </div>
           <div className='trapezoid-right'></div>
-          <div className='section-title'>
-            <h2>{section.title}</h2>
-          </div>
         </div>
       </div>
     )
@@ -29,4 +22,4 @@ const Service = ({ section }) => {
   }
 }
 
-export default Service
+export default React.memo(Service)

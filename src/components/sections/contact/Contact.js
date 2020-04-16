@@ -1,6 +1,4 @@
 import React from "react"
-import useBackground from "../../../utils/hooks/useBackground"
-import useTransition from "../../../utils/hooks/useTransition"
 import MapWrapper from "../../UX-UI/googleMaps/MapWrapper"
 import { Form, Input, Button } from "antd"
 import "antd/dist/antd.css"

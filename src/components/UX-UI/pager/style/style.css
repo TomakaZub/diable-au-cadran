@@ -1,4 +1,4 @@
-@import url(/Users/aguirregabiria/Desktop/React/diable-au-cadran-v2/src/style/common.css);
+@import url(/Users/aguirregabiria/Desktop/React/diable-au-cadran/src/style/common.css);
 ul.pager-item {
   position: fixed;
   z-index: 1;
@@ -14,7 +14,6 @@ ul.pager-item {
           animation-delay: 0.5s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  cursor: pointer;
   /* li.pager */
 }
 
@@ -35,6 +34,7 @@ ul.pager-item li.pager {
   border-radius: 50%;
   -webkit-transition: all 300ms linear;
   transition: all 300ms linear;
+  cursor: pointer;
 }
 
 ul.pager-item li.pager:hover {
@@ -46,6 +46,7 @@ ul.pager-item .active li.pager,
 ul.pager-item .active-top li.pager {
   background: black;
   border: 5px solid white;
+  cursor: pointer;
 }
 
 /* ul.pager-item  */

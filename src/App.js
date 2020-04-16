@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react"
 import firebase, { FirebaseContext } from "./firebase"
 import Loading from "./components/UX-UI/loading/Loading"
-import HomePage from "./components/sections/homePage/HomePage"
-import Service from "./components/sections/service/Service"
-import SavoirFaire from "./components/sections/savoirFaire/SavoirFaire"
-import Contact from "./components/sections/contact/Contact"
+import HomePage from "./components/sections/homePage/"
+import Service from "./components/sections/service/"
+import SavoirFaire from "./components/sections/savoirFaire"
+import Contact from "./components/sections/contact/"
 import { Pager } from "./components/UX-UI/pager/Pager"
 import Header from "./components/header/Header"
 
@@ -15,6 +15,7 @@ const INITIAL_CONTEXT = {
   isChanging: false, // si l'utilisateur change de section
   isMenuOpen: false, // si l'utilisateur ouvre la section
   idActivSection: "t6bys0zleWutaW74BnTu", // id de la première section
+  targetSection: {},
   sections: {}, // obj avec les objets des sections
   globalSettings: {},
 }

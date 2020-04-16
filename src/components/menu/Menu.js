@@ -7,7 +7,7 @@ export const Menu = ({ setAppContext, appContext }) => {
       setAppContext((prev) => {
         return {
           ...prev,
-          idActivSection: section.id,
+          targetSection: section,
           isChanging: true,
           isMenuOpen: false,
         }

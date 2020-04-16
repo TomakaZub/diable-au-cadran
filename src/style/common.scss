@@ -37,7 +37,7 @@ body {
   // Dès qu'un utilisateur clique sur le pager ou un item menu
   &.isChanging {
     transition: all 0.5s linear;
-    border: 20px solid $color-3;
+    border: 25px solid $color-3;
     pointer-events: none !important;
   } /* &.isChanging */
 

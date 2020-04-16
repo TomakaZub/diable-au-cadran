@@ -51,33 +51,6 @@
       animation: 2.5s ease normal forwards 1 fadein;
     } /* .trapezoid-right */
 
-    .section-title {
-      position: absolute;
-      background-color: $color-3;
-      bottom: 10%;
-      height: 5%;
-      width: 20%;
-      left: 0;
-
-      h2 {
-        font-family: "Lobster", cursive;
-        position: absolute;
-        font-size: 3em;
-        left: 25%;
-        margin-top: 0;
-        color: $color-1;
-      } /* h2 */
-    } /* .section-title */
-
-    @media screen and (max-height: 1000px) {
-      .section-title {
-        height: 5%;
-        h2 {
-          font-size: 2em;
-        }
-      } /* .section-title */
-    }
-
     @media screen and (max-width: 900px) {
       .trapezoid-left {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
@@ -89,12 +62,6 @@
       .trapezoid-right {
         display: none;
       }
-      .section-title {
-        width: 25%;
-        h2 {
-          font-size: 2em;
-        }
-      } /* .section-title */
     }
     @media screen and (max-width: 600px) {
       .trapezoid-left {
@@ -117,13 +84,6 @@
           line-height: 120%;
         }
       } /* .trapezoid-left */
-      .section-title {
-        bottom: 8%;
-        left: 80%;
-        h2 {
-          font-size: 1.3em;
-        }
-      } /* .section-title */
     }
 
     // Smartphone - portrait
@@ -136,14 +96,6 @@
           line-height: 140%;
         }
       } /* .trapezoid-left */
-      .section-title {
-        height: 5%;
-        width: 45%;
-        left: 50px;
-        h2 {
-          font-size: 1.5em;
-        }
-      } /* .section-title */
     }
 
     // ************************************************************************************************
@@ -170,9 +122,6 @@
           line-height: 140%;
         }
       } /* .trapezoid-left */
-      .section-title {
-        left: 80%;
-      }
     } /* @media screen and (max-width: 480px) and (max-height: 680px) */
     // ************************************************************************************************
     // *** Smartphone - paysage (screen pas très haut)
@@ -186,9 +135,6 @@
           line-height: 140%;
         }
       } /* .trapezoid-left */
-      .section-title {
-        height: 30px;
-      }
     } /* @media screen and (max-width: 480px) and (max-height: 680px) */
   } /* .section-title */
 } /* .section1.service */

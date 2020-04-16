@@ -1,5 +1,4 @@
 import React from "react"
-import { Element } from "react-scroll"
 import { addLineBreaks } from "../../../utils/textUtil"
 
 import "./style/style.css"
@@ -7,8 +6,7 @@ import "./style/style.css"
 const SavoirFaire = ({ section, filterFx, isChanging }) => {
   if (section) {
     return (
-      <Element
-        name='scroll-to-element'
+      <div
         className={`section section${section.tech.order} ${isChanging} savoirFaire`}
       >
         <div className={`section-container ${filterFx}`}>
@@ -18,7 +16,7 @@ const SavoirFaire = ({ section, filterFx, isChanging }) => {
 
           <div className='savoir-faire'>{addLineBreaks(section.content)}</div>
         </div>
-      </Element>
+      </div>
     )
   } else {
     return null
