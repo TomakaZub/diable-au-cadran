@@ -88,22 +88,29 @@
       .right-side {
         .adress {
           padding-top: 10px;
+          padding-bottom: 10px;
+          h1 {
+            display: none;
+          }
           h3 {
-            font-size: 1em;
+            font-size: 0.9em;
+            margin-bottom: 0;
           }
         }
         .form-contact {
-          margin-bottom: 10%;
-          .input-fied {
+          margin-bottom: 5%;
+          .input-field {
             .ant-form-item-label {
               padding: 0;
               label {
                 color: white;
+                height: 0;
+                font-size: 0.9em;
               }
             }
             textarea {
-              height: 120px !important;
-              min-height: 120px !important;
+              height: 100px !important;
+              min-height: 100px !important;
             }
           }
         } /* .form-contact */

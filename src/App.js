@@ -118,7 +118,7 @@ export const App = () => {
           <HomePage section={appContext.sections[0]} />
           <Service section={appContext.sections[1]} />
           <SavoirFaire section={appContext.sections[2]} />
-          <Contact section={appContext.sections[3]} /> */}
+          <Contact section={appContext.sections[3]} />
           {/* </ReactPageScroller> */}
         </div>
       </FirebaseContext.Provider>

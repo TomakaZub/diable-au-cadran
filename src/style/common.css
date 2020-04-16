@@ -76,13 +76,13 @@ body #root .container {
 
 @-webkit-keyframes slide-to-the-left {
   to {
-    right: 50px;
+    right: 40px;
   }
 }
 
 @keyframes slide-to-the-left {
   to {
-    right: 50px;
+    right: 40px;
   }
 }
 
@@ -100,13 +100,13 @@ body #root .container {
 
 @-webkit-keyframes slide-to-the-right {
   to {
-    left: 50px;
+    left: 40px;
   }
 }
 
 @keyframes slide-to-the-right {
   to {
-    left: 50px;
+    left: 40px;
   }
 }
 

@@ -130,6 +130,7 @@
   .section1.service .section-container .trapezoid-left .content {
     margin: 30% 15% 0;
     font-size: 0.8em;
+    text-align: justify;
   }
 }
 
@@ -142,6 +143,7 @@
     font-size: 0.7em;
     letter-spacing: 0rem;
     line-height: 140%;
+    text-align: justify;
   }
 }
 

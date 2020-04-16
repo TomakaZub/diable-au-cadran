@@ -99,13 +99,14 @@
     }
 
     // ************************************************************************************************
-    // *** Smartphone - portrait
+    // *** Smartphone - portrait (screen pas très haut)
     // ************************************************************************************************
     @media screen and (max-width: 480px) and (max-height: 680px) {
       .trapezoid-left {
         .content {
           margin: 30% 15% 0;
           font-size: 0.8em;
+          text-align: justify;
         }
       } /* .trapezoid-left */
     } /* @media screen and (max-width: 480px) and (max-height: 680px) */
@@ -120,6 +121,7 @@
           font-size: 0.7em;
           letter-spacing: 0rem;
           line-height: 140%;
+          text-align: justify;
         }
       } /* .trapezoid-left */
     } /* @media screen and (max-width: 480px) and (max-height: 680px) */

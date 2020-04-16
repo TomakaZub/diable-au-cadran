@@ -125,22 +125,29 @@
   }
   .section3.contact .section-container .right-side .adress {
     padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .section3.contact .section-container .right-side .adress h1 {
+    display: none;
   }
   .section3.contact .section-container .right-side .adress h3 {
-    font-size: 1em;
+    font-size: 0.9em;
+    margin-bottom: 0;
   }
   .section3.contact .section-container .right-side .form-contact {
-    margin-bottom: 10%;
+    margin-bottom: 5%;
   }
-  .section3.contact .section-container .right-side .form-contact .input-fied .ant-form-item-label {
+  .section3.contact .section-container .right-side .form-contact .input-field .ant-form-item-label {
     padding: 0;
   }
-  .section3.contact .section-container .right-side .form-contact .input-fied .ant-form-item-label label {
+  .section3.contact .section-container .right-side .form-contact .input-field .ant-form-item-label label {
     color: white;
+    height: 0;
+    font-size: 0.9em;
   }
-  .section3.contact .section-container .right-side .form-contact .input-fied textarea {
-    height: 120px !important;
-    min-height: 120px !important;
+  .section3.contact .section-container .right-side .form-contact .input-field textarea {
+    height: 100px !important;
+    min-height: 100px !important;
   }
 }
 
