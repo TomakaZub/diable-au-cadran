@@ -9,13 +9,15 @@ export const Pager = () => {
   const shouldToDelay = useSectionOrder()
 
   const handleClick = (sectionClicked) => {
-    setAppContext((prev) => {
-      return {
-        ...prev,
-        isChanging: true,
-        targetSection: sectionClicked,
-      }
-    })
+    if (sectionClicked.id !== appContext.idActivSection) {
+      setAppContext((prev) => {
+        return {
+          ...prev,
+          isChanging: true,
+          targetSection: sectionClicked,
+        }
+      })
+    }
   }
 
   /**
@@ -34,7 +36,7 @@ export const Pager = () => {
               isChanging: false,
             }
           })
-        }, 1500)
+        }, 2000)
       } else {
         setAppContext((prev) => {
           return {

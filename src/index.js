@@ -1,4 +1,5 @@
 import React from "react"
+import { ParallaxProvider } from "react-scroll-parallax"
 import ReactDOM from "react-dom"
 import "./index.css"
 import { App } from "./App"

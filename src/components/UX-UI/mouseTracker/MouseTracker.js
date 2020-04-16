@@ -4,8 +4,8 @@ import "./style/style.css"
 
 const MouseTracker = () => {
   const INITIAL_STATE = {
-    offsetX: "",
-    offsetY: "",
+    offsetX: 0,
+    offsetY: 0,
     friction: 1 / 32,
   }
 

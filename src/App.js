@@ -33,7 +33,7 @@ export const App = () => {
     const sections = snapshot.docs.map((doc) => {
       const section = {
         id: doc.id, // on ajoute l'identifiant du document dans la section
-        isActive: count === 0 ? true : false, // on ajoute la possibilité de savoir si la section est active ou non
+        // isActive: count === 0 ? true : false, // on ajoute la possibilité de savoir si la section est active ou non
         ...doc.data(), // on ajoute le reste des données
       }
       count++

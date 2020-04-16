@@ -11,7 +11,7 @@
 }
 
 .main-menu .list-item-menu {
-  background-color: #a00000;
+  background-color: #b50000;
   position: fixed;
   right: 0;
   top: 0;
@@ -38,7 +38,7 @@
 }
 
 .main-menu .list-item-menu li.item-menu.active {
-  color: #0d0d0d;
+  color: #0d0d0dbb;
 }
 
 .main-menu .list-item-menu .adress {
@@ -53,6 +53,7 @@
 
 @media screen and (max-width: 480px) and (max-height: 900px) {
   .main-menu .list-item-menu {
+    padding: 25% 15% 0 10%;
     min-width: 100%;
   }
   .main-menu .list-item-menu li.item-menu {

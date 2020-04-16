@@ -1,13 +1,15 @@
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @import url("https://fonts.googleapis.com/css?family=Lobster");
-* {
+*,
+*::before,
+*::after {
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
 }
 
 html,
 body {
-  background-color: #0d0d0d;
+  background-color: #0d0d0dbb;
   font-family: "Helvetica", arial, sans-serif;
 }
 
@@ -19,13 +21,12 @@ body #root .container {
 .section {
   height: 100vh;
   width: 100%;
-  background-color: #0d0d0d;
+  background-color: #0d0d0dbb;
   border: 10px solid white;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   overflow: hidden;
-  font-family: "Muli", cursive;
   -webkit-transition: all 0.5s linear;
   transition: all 0.5s linear;
   /* &.isChanging */
@@ -35,7 +36,7 @@ body #root .container {
 .section.isChanging {
   -webkit-transition: all 0.5s linear;
   transition: all 0.5s linear;
-  border: 25px solid white;
+  border: 25px solid #b50000;
   pointer-events: none !important;
 }
 
@@ -56,8 +57,8 @@ body #root .container {
 }
 
 .section .section-container.filterFx {
-  -webkit-filter: grayscale(80%);
-          filter: grayscale(80%);
+  -webkit-filter: blur(2px) grayscale(80%);
+          filter: blur(2px) grayscale(80%);
   -webkit-transition: all 500ms ease-in-out;
   transition: all 500ms ease-in-out;
   -webkit-animation: 2.5s ease normal forwards 1 fadein;
@@ -70,7 +71,7 @@ body #root .container {
     /* &.isChanging */
   }
   .section.isChanging {
-    border: 15px solid white;
+    border: 15px solid #b50000;
   }
 }
 

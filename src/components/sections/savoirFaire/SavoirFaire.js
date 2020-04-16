@@ -1,5 +1,6 @@
 import React from "react"
 import { addLineBreaks } from "../../../utils/textUtil"
+import { Parallax } from "react-scroll-parallax"
 
 import "./style/style.css"
 
@@ -13,7 +14,6 @@ const SavoirFaire = ({ section, filterFx, isChanging }) => {
           <div className='profil-picture'>
             <div className='picture'></div>
           </div>
-
           <div className='savoir-faire'>{addLineBreaks(section.content)}</div>
         </div>
       </div>
