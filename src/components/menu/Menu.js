@@ -2,6 +2,19 @@ import React from "react"
 import { Link } from "react-scroll"
 
 export const Menu = ({ setAppContext, appContext }) => {
+  const handleClick = (section) => {
+    if (section.id !== appContext.idActivSection) {
+      setAppContext((prev) => {
+        return {
+          ...prev,
+          idActivSection: section.id,
+          isChanging: true,
+          isMenuOpen: false,
+        }
+      })
+    }
+  }
+
   return (
     <div className='main-menu'>
       <div
@@ -28,16 +41,7 @@ export const Menu = ({ setAppContext, appContext }) => {
                       ? "item-menu active"
                       : "item-menu"
                   }
-                  onClick={() =>
-                    setAppContext((prev) => {
-                      return {
-                        ...prev,
-                        idActivSection: section.id,
-                        isChanging: true,
-                        isMenuOpen: false,
-                      }
-                    })
-                  }
+                  onClick={() => handleClick(section)}
                   key={section.id}
                 >
                   {section.title + "."}

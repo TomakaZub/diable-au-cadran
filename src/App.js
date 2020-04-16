@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react"
-// import ReactPageScroller from "react-page-scroller"
+import React, { useState, useEffect, useRef } from "react"
 import firebase, { FirebaseContext } from "./firebase"
 import Loading from "./components/UX-UI/loading/Loading"
 import HomePage from "./components/sections/homePage/HomePage"
@@ -83,6 +82,26 @@ export const App = () => {
     }
     return doIt()
   }, [])
+
+  // useEffect(() => {
+  //   let scrollPos = 0
+  //   const _mouseMove = (e) => {
+  //     if (document.body.getBoundingClientRect().top > scrollPos) {
+  //       console.log("UP")
+  //     } else {
+  //       console.log("DOWN")
+  //       scrollTo()
+  //     }
+  //     // saves the new position for iteration.
+  //     scrollPos = document.body.getBoundingClientRect().top
+  //   }
+
+  //   document.addEventListener("scroll", _mouseMove)
+
+  //   return () => {
+  //     document.removeEventListener("scroll", _mouseMove)
+  //   }
+  // }, [])
 
   if (!appContext.sections.length) {
     return <Loading />

@@ -7,9 +7,7 @@ import "antd/dist/antd.css"
 
 import "./style/style.css"
 
-const Contact = ({ section }) => {
-  const filterFx = useBackground()
-  const isChanging = useTransition()
+const Contact = ({ section, isChanging, filterFx }) => {
   // const [userName, setUserName] = useState("")
   // const [email, setEmail] = useState("")
   // const [message, setMessage] = useState("")
@@ -116,4 +114,4 @@ const Contact = ({ section }) => {
   }
 }
 
-export default Contact
+export default React.memo(Contact)

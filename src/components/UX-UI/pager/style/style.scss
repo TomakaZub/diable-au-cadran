@@ -11,7 +11,6 @@ ul.pager-item {
   animation-duration: 1s;
   animation-delay: 0.5s;
   animation-fill-mode: forwards;
-  cursor: pointer;
 
   @media screen and (max-width: 850px) {
     display: none;
@@ -27,10 +26,12 @@ ul.pager-item {
     border: 5px solid transparent;
     border-radius: 50%;
     transition: all 300ms linear;
+    cursor: pointer;
 
     &:hover {
       border: 5px solid rgba(255, 255, 255, 0.582);
       background: black;
+      cursor: none;
     }
   } /* li.pager */
 
@@ -39,6 +40,7 @@ ul.pager-item {
     li.pager {
       background: black;
       border: 5px solid white;
+      cursor: pointer;
     }
   }
 } /* ul.pager-item  */

@@ -19,10 +19,6 @@ const MouseTracker = () => {
         y = 0
       x += (-followX - x) * state.friction
       y += (followY - y) * state.friction
-      // setState({
-      //   offsetX: x,
-      //   offsetY: y,
-      // })
       setState((prevState) => {
         return { ...prevState, offsetX: x, offsetY: y }
       })

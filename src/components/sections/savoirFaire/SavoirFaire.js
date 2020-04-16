@@ -1,16 +1,14 @@
 import React from "react"
-import useBackground from "../../../utils/hooks/useBackground"
-import useTransition from "../../../utils/hooks/useTransition"
+import { Element } from "react-scroll"
 import { addLineBreaks } from "../../../utils/textUtil"
 
 import "./style/style.css"
 
-const SavoirFaire = ({ section }) => {
-  const filterFx = useBackground()
-  const isChanging = useTransition()
+const SavoirFaire = ({ section, filterFx, isChanging }) => {
   if (section) {
     return (
-      <div
+      <Element
+        name='scroll-to-element'
         className={`section section${section.tech.order} ${isChanging} savoirFaire`}
       >
         <div className={`section-container ${filterFx}`}>
@@ -20,11 +18,11 @@ const SavoirFaire = ({ section }) => {
 
           <div className='savoir-faire'>{addLineBreaks(section.content)}</div>
         </div>
-      </div>
+      </Element>
     )
   } else {
     return null
   }
 }
 
-export default SavoirFaire
+export default React.memo(SavoirFaire)
