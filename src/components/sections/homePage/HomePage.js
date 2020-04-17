@@ -13,9 +13,10 @@ const HomePage = ({ section, filterFx, isChanging }) => {
       <div
         className={`section section${section.tech.order} ${isChanging} homePage`}
       >
-        <div className={`section-container ${filterFx}`}></div>
-        <MouseTracker />
-        <Scroller />
+        <div className={`section-container ${filterFx}`}>
+          <MouseTracker />
+          <Scroller />
+        </div>
       </div>
     )
   } else {

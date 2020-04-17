@@ -1,20 +1,26 @@
 import React from "react"
 import { addLineBreaks } from "../../../utils/textUtil"
-import { Parallax } from "react-scroll-parallax"
 
 import "./style/style.css"
 
-const SavoirFaire = ({ section, filterFx, isChanging }) => {
+const SavoirFaire = ({ section, filterFx, isChanging, isActivSection }) => {
   if (section) {
     return (
       <div
-        className={`section section${section.tech.order} ${isChanging} savoirFaire`}
+        className={`section section${section.tech.order} ${isChanging} ${isActivSection} savoirFaire`}
       >
-        <div className={`section-container ${filterFx}`}>
-          <div className='profil-picture'>
-            <div className='picture'></div>
+        <div className={`section-container ${filterFx} `}>
+          <div className='left-bloc'>
+            <h1 className={`title ${isActivSection}`} data-text='ARTISAN'>
+              ARTISAN
+            </h1>
           </div>
-          <div className='savoir-faire'>{addLineBreaks(section.content)}</div>
+          <div className='right-bloc'>
+            <div className='savoir-faire'>{addLineBreaks(section.content)}</div>
+            <div className='profil-picture'>
+              <div className='picture'></div>
+            </div>
+          </div>
         </div>
       </div>
     )

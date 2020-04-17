@@ -1,5 +1,5 @@
 @import "./variables.scss";
-@import url("https://fonts.googleapis.com/css?family=Muli");
+@import url("https://fonts.googleapis.com/css?family=Lalezar");
 @import url("https://fonts.googleapis.com/css?family=Lobster");
 
 *,
@@ -38,7 +38,7 @@ body {
   // Dès qu'un utilisateur clique sur le pager ou un item menu
   &.isChanging {
     transition: all 0.5s linear;
-    border: 25px solid $color-2;
+    border: 25px solid $color-3;
     pointer-events: none !important;
   } /* &.isChanging */
 
@@ -55,7 +55,6 @@ body {
 
     // Dès qu'un utilisateur active le menu latéral
     &.filterFx {
-      filter: blur(2px) grayscale(80%);
       transition: all 500ms ease-in-out;
       animation: 2.5s ease normal forwards 1 fadein;
     } /* filterFx */
@@ -65,7 +64,7 @@ body {
     border: 5px solid $color-3;
 
     &.isChanging {
-      border: 15px solid $color-2;
+      border: 15px solid $color-1 !important;
     } /* &.isChanging */
   }
 }
@@ -73,6 +72,18 @@ body {
 // ********************************************************************************/
 // ***********     Key Frames      ************************************************/
 // ********************************************************************************/
+
+// utilisé sur la home page
+@keyframes sliding-background {
+  0%,
+  100% {
+    background-position: 0 40%;
+  }
+
+  50% {
+    background-position: 100% 40%;
+  }
+}
 
 // utilisé sur la home page
 @keyframes slide-to-the-left {

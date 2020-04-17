@@ -1,21 +1,9 @@
-import React, { useState, useEffect, useContext } from "react"
-
-import FirebaseContext from "../../../firebase/context"
+import React from "react"
 import { addLineBreaks } from "../../../utils/textUtil"
 
 import "./style/style.css"
 
-const Service = ({ section, isChanging, filterFx }) => {
-  const { appContext } = useContext(FirebaseContext)
-  const [isActiv, setIsActiv] = useState(false)
-
-  useEffect(() => {
-    console.log(section)
-    if (appContext.idActivSection === section.id) {
-      setIsActiv(true)
-    } else setIsActiv(false)
-  }, [appContext.idActivSection])
-
+const Service = ({ section, isChanging, filterFx, isActivSection }) => {
   if (section) {
     return (
       <div
@@ -24,7 +12,7 @@ const Service = ({ section, isChanging, filterFx }) => {
         <div className={`section-container ${filterFx}`}>
           <div className='bg-bloc'>
             <div className='content'>{addLineBreaks(section.content1)}</div>
-            <h2 class={`${isActiv ? "anim-title activ" : "anim-title"}`}>
+            <h2 class={`${isActivSection ? "anim-title activ" : "anim-title"}`}>
               <span>100% artisanal</span>
               <span>Découvrez l'atelier !</span>
             </h2>
