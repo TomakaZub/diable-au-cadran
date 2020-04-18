@@ -3,23 +3,25 @@ import { addLineBreaks } from "../../../utils/textUtil"
 
 import "./style/style.css"
 
-const SavoirFaire = ({ section, filterFx, isChanging, isActivSection }) => {
+const SavoirFaire = ({ section, isChanging, filterFx, isActivSection }) => {
   if (section) {
     return (
       <div
-        className={`section section${section.tech.order} ${isChanging} ${isActivSection} savoirFaire`}
+        className={`section section${section.tech.order} ${isChanging} ${isActivSection} savoir-faire`}
       >
-        <div className={`section-container ${filterFx} `}>
-          <div className={`left-bloc-light ${isActivSection}`}>
-            <h1 className='title-decoration' data-text='ARTISAN'>
-              ARTISAN
-            </h1>
-          </div>
-          <div className={`right-bloc-dark ${isActivSection}`}>
-            <div className='savoir-faire'>{addLineBreaks(section.content)}</div>
-            <div className='profil-picture'>
-              <div className='picture'></div>
+        <div className={`section-container ${filterFx}`}>
+          <div className={`left-bloc-dark ${isActivSection}`}>
+            <div className='text-container'>
+              <div className='content'>{addLineBreaks(section.content)}</div>
+              <div className='profil-picture'>
+                <div className='picture'></div>
+              </div>
             </div>
+          </div>
+          <div className={`right-bloc-light ${isActivSection}`}>
+            <h1 className='title-decoration' data-text='SAVOIR'>
+              SAVOIR
+            </h1>
           </div>
         </div>
       </div>
