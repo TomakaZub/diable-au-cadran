@@ -7,7 +7,7 @@ const Service = ({ section, isChanging, filterFx, isActivSection }) => {
   if (section) {
     return (
       <div
-        className={`section section${section.tech.order} ${isChanging} service`}
+        className={`section section${section.tech.order} ${isChanging} ${isActivSection} service`}
       >
         <div className={`section-container ${filterFx}`}>
           <div className={`left-bloc-dark ${isActivSection}`}>

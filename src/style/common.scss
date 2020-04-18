@@ -242,7 +242,18 @@ body {
     display: block;
     background-size: cover !important;
 
-    .left-bloc-light,
+    .left-bloc-light {
+      -webkit-transform: translateX(0%) translateZ(0px);
+      -moz-transform: translateX(0%) translateZ(0px);
+      transform: translateX(0%) translateZ(0px);
+      transition: 1s;
+      .title-decoration {
+        font-size: 4em;
+        -webkit-transition: all 500ms ease-in-out;
+        transition: all 500ms ease-in-out;
+      }
+    }
+
     .right-bloc-light {
       -webkit-transform: translateX(0%) translateZ(0px);
       -moz-transform: translateX(0%) translateZ(0px);
@@ -254,17 +265,30 @@ body {
         transition: all 500ms ease-in-out;
       }
     }
-    .right-bloc-dark,
-    .left-bloc-dark {
+    .right-bloc-dark {
       -webkit-transform: translateY(0%) translateZ(0px);
       -moz-transform: translateY(0%) translateZ(0px);
       transform: translateY(0%) translateZ(0px);
       transition: 1s;
     }
+    .left-bloc-dark {
+      -webkit-transform: translateX(100%) translateZ(0px);
+      -moz-transform: translateX(100%) translateZ(0px);
+      transform: translateX(100%) translateZ(0px);
+      transition: 1s;
+    }
   } /* section-container */
   &.activ-section {
     .section-container {
-      .left-bloc-light,
+      .left-bloc-light {
+        &.activ-section {
+          -webkit-transform: translateX(-100%) translateZ(0px);
+          -moz-transform: translateX(-100%) translateZ(0px);
+          transform: translateX(-100%) translateZ(0px);
+          transition: 1s;
+          transition-delay: 0.7s;
+        }
+      }
       .right-bloc-light {
         &.activ-section {
           -webkit-transform: translateX(-100%) translateZ(0px);
@@ -274,12 +298,20 @@ body {
           transition-delay: 0.7s;
         }
       }
-      .right-bloc-dark,
-      .left-bloc-dark {
+      .right-bloc-dark {
         &.activ-section {
           -webkit-transform: translateY(-100%) translateZ(0px) !important;
           -moz-transform: translateY(-100%) translateZ(0px) !important;
           transform: translateY(-102%) translateZ(0px) !important;
+          transition: 1s;
+          transition-delay: 1.3s;
+        }
+      }
+      .left-bloc-dark {
+        &.activ-section {
+          -webkit-transform: translateX(0%) translateZ(0px) !important;
+          -moz-transform: translateX(0%) translateZ(0px) !important;
+          transform: translateX(0%) translateZ(0px) !important;
           transition: 1s;
           transition-delay: 1.3s;
         }

@@ -55,7 +55,7 @@ export const Pager = () => {
         spy={true}
         smooth={true}
         offset={0}
-        duration={2000}
+        duration={1500}
         delay={2000}
         ignoreCancelEvents={true}
         onClick={() => handleClick(appContext.sections[key])}

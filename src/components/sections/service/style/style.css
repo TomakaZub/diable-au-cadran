@@ -231,38 +231,47 @@
     -webkit-box-direction: reverse;
         -ms-flex-direction: column-reverse;
             flex-direction: column-reverse;
+    /* .left-bloc-dark */
+  }
+  .section1.service .section-container .left-bloc-dark {
+    position: absolute;
+    width: 100%;
     /* text-container */
   }
-  .section1.service .section-container .text-container {
+  .section1.service .section-container .left-bloc-dark .text-container {
     width: 175px;
     /* .anim-title */
     /* .content */
   }
-  .section1.service .section-container .text-container::before {
+  .section1.service .section-container .left-bloc-dark .text-container::before {
     bottom: -20px;
     left: -20px;
   }
-  .section1.service .section-container .text-container::after {
+  .section1.service .section-container .left-bloc-dark .text-container::after {
     top: -20px;
     right: -20px;
   }
-  .section1.service .section-container .text-container .anim-title {
+  .section1.service .section-container .left-bloc-dark .text-container .anim-title {
     margin: 1.5em 0 0 0;
     padding: 0;
     border: none;
     font-size: 1.8em;
   }
-  .section1.service .section-container .text-container .anim-titlespan {
+  .section1.service .section-container .left-bloc-dark .text-container .anim-titlespan {
     font-size: 0.8em;
   }
-  .section1.service .section-container .text-container .content {
+  .section1.service .section-container .left-bloc-dark .text-container .content {
     font-size: 1em;
     letter-spacing: 0rem;
     line-height: 140%;
     width: 180px;
   }
-  .section1.service .section-container .text-container .content:last-child {
+  .section1.service .section-container .left-bloc-dark .text-container .content:last-child {
     display: none;
+  }
+  .section1.service .section-container .right-bloc-light {
+    position: absolute;
+    width: 100%;
   }
 }
 

@@ -332,28 +332,49 @@ body #root .container {
     display: block;
     background-size: cover !important;
   }
-  .section-container .left-bloc-light,
+  .section-container .left-bloc-light {
+    -webkit-transform: translateX(0%) translateZ(0px);
+    transform: translateX(0%) translateZ(0px);
+    -webkit-transition: 1s;
+    transition: 1s;
+  }
+  .section-container .left-bloc-light .title-decoration {
+    font-size: 4em;
+    -webkit-transition: all 500ms ease-in-out;
+    transition: all 500ms ease-in-out;
+  }
   .section-container .right-bloc-light {
     -webkit-transform: translateX(0%) translateZ(0px);
     transform: translateX(0%) translateZ(0px);
     -webkit-transition: 1s;
     transition: 1s;
   }
-  .section-container .left-bloc-light .title-decoration,
   .section-container .right-bloc-light .title-decoration {
     font-size: 4em;
     -webkit-transition: all 500ms ease-in-out;
     transition: all 500ms ease-in-out;
   }
-  .section-container .right-bloc-dark,
-  .section-container .left-bloc-dark {
+  .section-container .right-bloc-dark {
     -webkit-transform: translateY(0%) translateZ(0px);
     transform: translateY(0%) translateZ(0px);
     -webkit-transition: 1s;
     transition: 1s;
   }
+  .section-container .left-bloc-dark {
+    -webkit-transform: translateX(100%) translateZ(0px);
+    transform: translateX(100%) translateZ(0px);
+    -webkit-transition: 1s;
+    transition: 1s;
+  }
   /* section-container */
-  .activ-section .section-container .left-bloc-light.activ-section,
+  .activ-section .section-container .left-bloc-light.activ-section {
+    -webkit-transform: translateX(-100%) translateZ(0px);
+    transform: translateX(-100%) translateZ(0px);
+    -webkit-transition: 1s;
+    transition: 1s;
+    -webkit-transition-delay: 0.7s;
+            transition-delay: 0.7s;
+  }
   .activ-section .section-container .right-bloc-light.activ-section {
     -webkit-transform: translateX(-100%) translateZ(0px);
     transform: translateX(-100%) translateZ(0px);
@@ -362,10 +383,17 @@ body #root .container {
     -webkit-transition-delay: 0.7s;
             transition-delay: 0.7s;
   }
-  .activ-section .section-container .right-bloc-dark.activ-section,
-  .activ-section .section-container .left-bloc-dark.activ-section {
+  .activ-section .section-container .right-bloc-dark.activ-section {
     -webkit-transform: translateY(-100%) translateZ(0px) !important;
     transform: translateY(-102%) translateZ(0px) !important;
+    -webkit-transition: 1s;
+    transition: 1s;
+    -webkit-transition-delay: 1.3s;
+            transition-delay: 1.3s;
+  }
+  .activ-section .section-container .left-bloc-dark.activ-section {
+    -webkit-transform: translateX(0%) translateZ(0px) !important;
+    transform: translateX(0%) translateZ(0px) !important;
     -webkit-transition: 1s;
     transition: 1s;
     -webkit-transition-delay: 1.3s;
