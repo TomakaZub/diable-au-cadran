@@ -10,14 +10,12 @@ const SavoirFaire = ({ section, filterFx, isChanging, isActivSection }) => {
         className={`section section${section.tech.order} ${isChanging} ${isActivSection} savoirFaire`}
       >
         <div className={`section-container ${filterFx} `}>
-          <div className={`left-bloc ${isActivSection}`}>
-            {/* <div className='test'> */}
-            <h1 className='title' data-text='ARTISAN'>
+          <div className={`left-bloc-light ${isActivSection}`}>
+            <h1 className='title-decoration' data-text='ARTISAN'>
               ARTISAN
             </h1>
-            {/* </div> */}
           </div>
-          <div className={`right-bloc ${isActivSection}`}>
+          <div className={`right-bloc-dark ${isActivSection}`}>
             <div className='savoir-faire'>{addLineBreaks(section.content)}</div>
             <div className='profil-picture'>
               <div className='picture'></div>

@@ -30,9 +30,12 @@
   font-weight: bold;
 }
 
-@media screen and (max-width: 850px) and (max-height: 900px) {
+@media screen and (max-width: 450px) and (max-height: 900px) {
   .header .site-name {
     margin-top: 20px;
+  }
+  .header .site-name.custom-title {
+    color: white !important;
   }
 }
 
@@ -46,6 +49,10 @@
           animation-delay: 0.5s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
+}
+
+.header .site-name.custom-title {
+  color: #0d0d0d;
 }
 
 .header *,

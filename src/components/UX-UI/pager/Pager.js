@@ -1,12 +1,10 @@
 import React, { useContext } from "react"
-import useSectionOrder from "../../../utils/hooks/useSectionOrder"
 import FirebaseContext from "../../../firebase/context"
 import { Link } from "react-scroll"
 import "./style/style.css"
 
 export const Pager = () => {
   const { appContext, setAppContext } = useContext(FirebaseContext)
-  const shouldToDelay = useSectionOrder()
 
   const handleClick = (sectionClicked) => {
     if (sectionClicked.id !== appContext.idActivSection) {
@@ -27,17 +25,7 @@ export const Pager = () => {
   const handleSetActive = (section) => {
     // si la section active est celle qui été visée, alors isChanging: false
     if (section.id === appContext.targetSection.id) {
-      if (shouldToDelay) {
-        setTimeout(() => {
-          setAppContext((prev) => {
-            return {
-              ...prev,
-              idActivSection: section.id,
-              isChanging: false,
-            }
-          })
-        }, 2000)
-      } else {
+      setTimeout(() => {
         setAppContext((prev) => {
           return {
             ...prev,
@@ -45,7 +33,7 @@ export const Pager = () => {
             isChanging: false,
           }
         })
-      }
+      }, 1000)
     }
     // sinon alors isChanging: reste à true
     else {
