@@ -57,6 +57,8 @@ body #root .container {
 }
 
 .section .section-container.filterFx {
+  -webkit-filter: grayscale(80%);
+          filter: grayscale(80%);
   -webkit-transition: all 500ms ease-in-out;
   transition: all 500ms ease-in-out;
   -webkit-animation: 2.5s ease normal forwards 1 fadein;
@@ -69,7 +71,7 @@ body #root .container {
     /* &.isChanging */
   }
   .section.isChanging {
-    border: 15px solid #0d0d0d !important;
+    border: 15px solid white !important;
   }
 }
 
@@ -208,7 +210,11 @@ body #root .container {
 }
 
 .section2.savoirFaire.activ-section {
-  border: 5px solid #b50000;
+  border: 10px solid #b50000;
+}
+
+.section2.savoirFaire.isChanging {
+  border: 25px solid white;
 }
 
 .section2.savoirFaire .section-container {
@@ -223,8 +229,7 @@ body #root .container {
   height: 100%;
   -webkit-animation: sliding-background 40s linear infinite !important;
           animation: sliding-background 40s linear infinite !important;
-  background: url("../../../../img/atelier-rouge.jpg") no-repeat left/140%;
-  background-size: cover;
+  background: url("../../../../img/atelier-rouge.jpg") no-repeat left/120%;
   /* &.menuIsOpen */
   /* left-bloc */
   /* right-bloc */
@@ -250,6 +255,7 @@ body #root .container {
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
   /* title */
+  /*  .title  */
 }
 
 .section2.savoirFaire .section-container .left-bloc .title {
@@ -261,6 +267,7 @@ body #root .container {
   line-height: 100vh;
   padding: 0 20px;
   margin: 0;
+  width: 100%;
   mix-blend-mode: lighten;
   text-transform: uppercase;
   text-align: center;
@@ -269,10 +276,7 @@ body #root .container {
   transition: all 500ms ease-in-out;
   -webkit-animation: 2.5s ease normal forwards 1 fadein;
           animation: 2.5s ease normal forwards 1 fadein;
-}
-
-.section2.savoirFaire .section-container .left-bloc .title.activ-section {
-  background: rgba(255, 255, 255, 0.9);
+  /* &:before */
 }
 
 .section2.savoirFaire .section-container .left-bloc .title:before {
@@ -281,6 +285,10 @@ body #root .container {
   margin-left: -1%;
   margin-top: -1%;
   position: absolute;
+}
+
+.section2.savoirFaire .section-container .left-bloc.activ-section .title {
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .section2.savoirFaire .section-container .right-bloc {
@@ -300,6 +308,7 @@ body #root .container {
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
   background-color: rgba(0, 0, 0, 0.493);
+  height: 100%;
   /* savoir-faire */
   /* .profil-picture */
 }
@@ -380,29 +389,14 @@ body #root .container {
     /* section-container */
   }
   .section2.savoirFaire .section-container {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  .section2.savoirFaire .section-container .left-bloc {
-    -ms-flex-preferred-size: 30%;
-        flex-basis: 30%;
+    display: block;
+    background-size: cover;
   }
   .section2.savoirFaire .section-container .left-bloc .title {
     font-size: 4em;
     -webkit-transition: all 500ms ease-in-out;
     transition: all 500ms ease-in-out;
-  }
-  .section2.savoirFaire .section-container .left-bloc .title.activ-section {
-    display: none;
-    height: 0;
-    -webkit-transition: 1s;
-    transition: 1s;
-    -webkit-transition-delay: 2s;
-            transition-delay: 2s;
-    -webkit-transition: all 500ms ease-in-out;
-    transition: all 500ms ease-in-out;
+    padding: 0;
   }
   .section2.savoirFaire .section-container .right-bloc {
     /* .profil-picture */
@@ -416,6 +410,25 @@ body #root .container {
   .section2.savoirFaire .section-container .right-bloc .savoir-faire {
     margin: 80px;
     width: 300px;
+  }
+  .section2.savoirFaire.activ-section {
+    border: 5px solid #b50000;
+  }
+  .section2.savoirFaire.activ-section .section-container .left-bloc.activ-section {
+    -webkit-transform: translateX(-100%) translateZ(0px);
+    transform: translateX(-100%) translateZ(0px);
+    -webkit-transition: 1s;
+    transition: 1s;
+    -webkit-transition-delay: 1s;
+            transition-delay: 1s;
+  }
+  .section2.savoirFaire.activ-section .section-container .right-bloc.activ-section {
+    -webkit-transform: translateY(-100%) translateZ(0px);
+    transform: translateY(-101%) translateZ(0px);
+    -webkit-transition: 1s;
+    transition: 1s;
+    -webkit-transition-delay: 1.3s;
+            transition-delay: 1.3s;
   }
 }
 

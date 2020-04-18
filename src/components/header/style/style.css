@@ -48,10 +48,6 @@
           animation-fill-mode: forwards;
 }
 
-.header .site-name.black-title {
-  color: #0d0d0d;
-}
-
 .header *,
 .header *::after,
 .header *::before {

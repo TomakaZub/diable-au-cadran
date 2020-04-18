@@ -57,6 +57,8 @@ body #root .container {
 }
 
 .section .section-container.filterFx {
+  -webkit-filter: grayscale(80%);
+          filter: grayscale(80%);
   -webkit-transition: all 500ms ease-in-out;
   transition: all 500ms ease-in-out;
   -webkit-animation: 2.5s ease normal forwards 1 fadein;
@@ -69,7 +71,7 @@ body #root .container {
     /* &.isChanging */
   }
   .section.isChanging {
-    border: 15px solid #0d0d0d !important;
+    border: 15px solid white !important;
   }
 }
 

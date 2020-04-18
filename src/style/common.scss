@@ -55,6 +55,7 @@ body {
 
     // Dès qu'un utilisateur active le menu latéral
     &.filterFx {
+      filter: grayscale(80%);
       transition: all 500ms ease-in-out;
       animation: 2.5s ease normal forwards 1 fadein;
     } /* filterFx */
@@ -64,7 +65,7 @@ body {
     border: 5px solid $color-3;
 
     &.isChanging {
-      border: 15px solid $color-1 !important;
+      border: 15px solid $color-3 !important;
     } /* &.isChanging */
   }
 }
