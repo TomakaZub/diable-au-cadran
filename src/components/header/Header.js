@@ -1,31 +1,21 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext } from "react"
 import Menu from "../menu"
 import FirebaseContext from "../../firebase/context"
+import useCustomUx from "../../utils/hooks/useCustomUx"
 
 import "./style/style.css"
 
 const Header = () => {
   const { appContext } = useContext(FirebaseContext)
-  const [hidden, setHidden] = useState("")
-  const [customTitle, setCustomTitle] = useState("")
+  const customClass = useCustomUx()
 
   const siteName =
     appContext.globalSettings.length && appContext.globalSettings[0].siteName
 
-  useEffect(() => {
-    // On cache le nom du site lorsqu'on est sur la section "contact"
-    if (appContext.idActivSection === appContext.sections[3].id) {
-      setHidden("hidden")
-    } else setHidden("")
-    if (appContext.idActivSection === appContext.sections[2].id) {
-      setCustomTitle("custom-title")
-    } else setCustomTitle("")
-  }, [appContext.idActivSection])
-
   return (
-    <div className='header'>
+    <div className={`header ${customClass}`}>
+      <div className='site-name'>{siteName}</div>
       <Menu />
-      <div className={`site-name ${hidden} ${customTitle}`}>{siteName}</div>
     </div>
   )
 }

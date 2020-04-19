@@ -16,7 +16,7 @@ export const Menu = ({ setAppContext, appContext }) => {
   }
 
   return (
-    <div className='main-menu'>
+    <div className={`main-menu`}>
       <div
         className={
           appContext.isMenuOpen ? "list-item-menu open" : "list-item-menu"

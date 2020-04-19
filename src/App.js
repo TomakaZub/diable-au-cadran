@@ -9,6 +9,7 @@ import { Pager } from "./components/UX-UI/pager/Pager"
 import Header from "./components/header/Header"
 
 import "./style/common.css"
+import "./style/section.css"
 
 // Context de l'application
 const INITIAL_CONTEXT = {

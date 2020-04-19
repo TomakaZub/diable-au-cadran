@@ -1,4 +1,3 @@
-@import url(/Users/aguirregabiria/Desktop/React/diable-au-cadran/src/style/common.css);
 ul.pager-item {
   position: fixed;
   z-index: 1;
@@ -15,6 +14,7 @@ ul.pager-item {
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
   /* li.pager */
+  /* &.custom-section-2  */
 }
 
 @media screen and (max-width: 850px) {
@@ -35,17 +35,31 @@ ul.pager-item li.pager {
   -webkit-transition: all 300ms linear;
   transition: all 300ms linear;
   cursor: pointer;
+  -webkit-box-sizing: content-box !important;
+          box-sizing: content-box !important;
 }
 
 ul.pager-item li.pager:hover {
-  border: 5px solid rgba(255, 255, 255, 0.582);
-  background: black;
+  border: 5px solid rgba(255, 255, 255, 0.9);
+  background: #0d0d0d;
 }
 
 ul.pager-item .active li.pager,
 ul.pager-item .active-top li.pager {
-  background: black;
+  background: #0d0d0d;
   border: 5px solid white;
+  cursor: pointer;
+}
+
+ul.pager-item.custom-section-2 li.pager {
+  background: #0d0d0d;
+  background-clip: padding-box;
+}
+
+ul.pager-item.custom-section-2 .active li.pager,
+ul.pager-item.custom-section-2 .active-top li.pager {
+  background: white;
+  border: 5px solid #0d0d0d;
   cursor: pointer;
 }
 

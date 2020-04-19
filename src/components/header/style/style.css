@@ -6,9 +6,10 @@
   height: 10%;
   width: 100%;
   /* site-name */
-  /* -------------------------------------------------------------------------------- */
-  /* ------------------------------------ BOUTON ------------------------------------ */
   /* btn-menu */
+  /* &.custom-section-2 */
+  /* &.custom-section-3 */
+  /* &.custom-section-4 */
   /* @media screen */
   /* @media screen */
 }
@@ -30,40 +31,6 @@
   font-weight: bold;
 }
 
-@media screen and (max-width: 450px) and (max-height: 900px) {
-  .header .site-name {
-    margin-top: 20px;
-  }
-  .header .site-name.custom-title {
-    color: white !important;
-  }
-}
-
-.header .site-name.hidden {
-  left: 40px;
-  -webkit-animation-name: slide-page-to-left;
-          animation-name: slide-page-to-left;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-delay: 0.5s;
-          animation-delay: 0.5s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-.header .site-name.custom-title {
-  color: #0d0d0d;
-}
-
-.header *,
-.header *::after,
-.header *::before {
-  padding: 0;
-  margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
 .header .btn-menu {
   cursor: pointer;
   position: absolute;
@@ -80,8 +47,40 @@
   padding: 10px 0 10px 10px;
 }
 
-.header .menu {
+.header .btn-menu .menu {
   color: white;
+}
+
+.header.custom-section-2 {
+  /* btn-menu */
+}
+
+.header.custom-section-2 .btn-menu .menu {
+  color: #0d0d0d;
+}
+
+.header.custom-section-3 {
+  /* btn-menu */
+}
+
+.header.custom-section-3 .site-name {
+  color: #0d0d0d;
+}
+
+.header.custom-section-4 {
+  /* .site-name */
+}
+
+.header.custom-section-4 .site-name {
+  left: 40px;
+  -webkit-animation-name: slide-page-to-left;
+          animation-name: slide-page-to-left;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 @media screen and (max-width: 850px) and (max-height: 900px) {
@@ -105,4 +104,56 @@
 }
 
 /* .header */
+@media screen and (max-width: 420px) and (max-height: 900px) {
+  .custom-section-2 {
+    /* .btn-menu .menu */
+  }
+  .custom-section-2 .btn-menu .menu {
+    color: white !important;
+  }
+  /* &.custom-section-2 */
+  .custom-section-3 {
+    /* site-name */
+  }
+  .custom-section-3 .site-name {
+    color: white !important;
+  }
+  /* &.custom-section-3 */
+}
+
+/* @media screen */
+@-webkit-keyframes slide-to-the-right {
+  to {
+    left: 40px;
+  }
+}
+@keyframes slide-to-the-right {
+  to {
+    left: 40px;
+  }
+}
+
+@-webkit-keyframes slide-to-the-left {
+  to {
+    right: 40px;
+  }
+}
+
+@keyframes slide-to-the-left {
+  to {
+    right: 40px;
+  }
+}
+
+@-webkit-keyframes slide-page-to-left {
+  to {
+    left: -200px;
+  }
+}
+
+@keyframes slide-page-to-left {
+  to {
+    left: -200px;
+  }
+}
 /*# sourceMappingURL=style.css.map */

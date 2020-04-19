@@ -1,10 +1,12 @@
 import React, { useContext } from "react"
 import FirebaseContext from "../../../firebase/context"
+import useCustomUx from "../../../utils/hooks/useCustomUx"
 import { Link } from "react-scroll"
 import "./style/style.css"
 
 export const Pager = () => {
   const { appContext, setAppContext } = useContext(FirebaseContext)
+  const customClass = useCustomUx()
 
   const handleClick = (sectionClicked) => {
     if (sectionClicked.id !== appContext.idActivSection) {
@@ -80,5 +82,5 @@ export const Pager = () => {
     )
   })
 
-  return <ul className='pager-item'>{pagerPointsList}</ul>
+  return <ul className={`pager-item ${customClass}`}>{pagerPointsList}</ul>
 }

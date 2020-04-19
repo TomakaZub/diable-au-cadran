@@ -19,38 +19,7 @@
     padding: 10px 0;
     color: $color-3;
     font-weight: bold;
-
-    @media screen and (max-width: 450px) and (max-height: 900px) {
-      margin-top: 20px;
-
-      &.custom-title {
-        color: $color-3 !important;
-      }
-    }
-
-    &.hidden {
-      left: 40px;
-      animation-name: slide-page-to-left;
-      animation-duration: 1s;
-      animation-delay: 0.5s;
-      animation-fill-mode: forwards;
-    }
-
-    &.custom-title {
-      color: $color-1;
-    }
   } /* site-name */
-
-  /* -------------------------------------------------------------------------------- */
-  /* ------------------------------------ BOUTON ------------------------------------ */
-
-  *,
-  *::after,
-  *::before {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
 
   .btn-menu {
     cursor: pointer;
@@ -62,11 +31,35 @@
     animation-delay: 0.5s;
     animation-fill-mode: forwards;
     padding: 10px 0 10px 10px;
+
+    .menu {
+      color: $color-3;
+    }
   } /* btn-menu */
 
-  .menu {
-    color: $color-3;
-  }
+  &.custom-section-2 {
+    .btn-menu {
+      .menu {
+        color: $color-1;
+      }
+    } /* btn-menu */
+  } /* &.custom-section-2 */
+
+  &.custom-section-3 {
+    .site-name {
+      color: $color-1;
+    } /* btn-menu */
+  } /* &.custom-section-3 */
+
+  &.custom-section-4 {
+    .site-name {
+      left: 40px;
+      animation-name: slide-page-to-left;
+      animation-duration: 1s;
+      animation-delay: 0.5s;
+      animation-fill-mode: forwards;
+    } /* .site-name */
+  } /* &.custom-section-4 */
 
   @media screen and (max-width: 850px) and (max-height: 900px) {
     .site-name,
@@ -81,3 +74,37 @@
     } /* site-name */
   } /* @media screen */
 } /* .header */
+@media screen and (max-width: 420px) and (max-height: 900px) {
+  &.custom-section-2 {
+    .btn-menu .menu {
+      color: $color-3 !important;
+    } /* .btn-menu .menu */
+  } /* &.custom-section-2 */
+  &.custom-section-3 {
+    .site-name {
+      color: $color-3 !important;
+    } /* site-name */
+  } /* &.custom-section-3 */
+} /* @media screen */
+
+// ********************************************************************************/
+// ***********     Key Frames      ************************************************/
+// ********************************************************************************/
+
+@keyframes slide-to-the-right {
+  to {
+    left: 40px;
+  }
+}
+
+@keyframes slide-to-the-left {
+  to {
+    right: 40px;
+  }
+}
+
+@keyframes slide-page-to-left {
+  to {
+    left: -200px;
+  }
+}

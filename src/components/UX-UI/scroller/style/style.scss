@@ -38,3 +38,41 @@
     }
   } /* .mousey */
 } /* .scroll-info */
+
+// ********************************************************************************/
+// ***********     Key Frames      ************************************************/
+// ********************************************************************************/
+
+// utilisé sur la home page
+@keyframes slide-to-the-top {
+  to {
+    bottom: 15%;
+  }
+}
+
+// utilisé sur l'image de la home page
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// utilisé pour inciter le scroll sur la home page
+@keyframes scroll {
+  0% {
+    opacity: 0;
+    bottom: -50px;
+  }
+  10% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(6px);
+    opacity: 0;
+    bottom: 0px;
+  }
+}
