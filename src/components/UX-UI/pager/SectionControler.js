@@ -16,12 +16,17 @@ export const SectionControler = (props) => {
     const { slidesCount, scrollToSlide } = props
 
     const handleClick = (i) => {
-      appContext.isMenuOpen &&
+      if (appContext.isMenuOpen) {
         setAppContext((prev) => {
-          return { ...prev, isMenuOpen: false }
+          return { ...prev, isMenuOpen: false, isChanging: true }
         })
+      } else {
+        setAppContext((prev) => {
+          return { ...prev, isChanging: true }
+        })
+      }
 
-      scrollToSlide(i)
+      setTimeout(() => scrollToSlide(i), 1000)
     }
 
     const slidesNumbers = []
@@ -42,7 +47,6 @@ export const SectionControler = (props) => {
   }
 
   return (
-    // MENU
     <>
       {/* MENU */}
       <div className={classNameMenu}>

@@ -17,12 +17,12 @@
   transition: all 0.5s linear;
   scroll-snap-align: start;
 
-  // // Dès qu'un utilisateur clique sur le pager ou un item menu
-  // &.isChanging {
-  //   transition: all 0.5s linear;
-  //   border: 25px solid $color-3;
-  //   pointer-events: none !important;
-  // } /* &.isChanging */
+  // Dès qu'un utilisateur clique sur le pager ou un item menu
+  &.isChanging {
+    transition: all 0.5s linear;
+    border: 25px solid $color-3;
+    pointer-events: none !important;
+  } /* &.isChanging */
 
   .section-container {
     display: flex;
