@@ -29,7 +29,7 @@ export const App = () => {
    * Met à jour l'id de la section active dans le context
    * @param {from, to} index de départ et d'arrivé
    */
-  const handleActivSection = ({ to }) => {
+  const afterChange = ({ to }) => {
     const idActivSection = appContext.sections[to].id
     setAppContext((prev) => {
       return {
@@ -38,7 +38,17 @@ export const App = () => {
         isChanging: false,
       }
     })
+
+    // if (appContext.isMenuOpen) {
+    //   setAppContext((prev) => {
+    //     return { ...prev, isMenuOpen: false, isChanging: true }
+    //   })
+    // } else {
+    //   setAppContext((prev) => {
+    //     return { ...prev, isChanging: true }
+    //   })
   }
+
   /**
    * Met à jour le context (sections) avec les données reçues de firebase.
    * Injection des sections dans le context.
@@ -100,6 +110,8 @@ export const App = () => {
   if (!appContext.sections.length) {
     return <Loading />
   } else {
+    document.documentElement.style.setProperty("--my-variable-name", "pink")
+
     return (
       <FirebaseContext.Provider value={{ appContext, setAppContext, firebase }}>
         <Header />
@@ -107,7 +119,7 @@ export const App = () => {
           <FullPage
             controls={SectionControler}
             duration={1500}
-            afterChange={handleActivSection}
+            afterChange={afterChange}
           >
             <Slide>
               <HomePage section={appContext.sections[0]} />

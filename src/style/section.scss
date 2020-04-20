@@ -20,7 +20,7 @@
   // Dès qu'un utilisateur clique sur le pager ou un item menu
   &.isChanging {
     transition: all 0.5s linear;
-    border: 10px 25px solid $color-3;
+    border: 20px solid $color-4;
     pointer-events: none !important;
   } /* &.isChanging */
 
@@ -28,7 +28,6 @@
     display: flex;
     flex-direction: row;
     height: 100%;
-    width: 100%;
     transition: all 1s linear;
     border: 0px solid $color-3;
     box-sizing: border-box;
@@ -52,9 +51,13 @@
     } /* &.menuIsOpen */
 
     .right-bloc-light {
-      display: flex;
-      flex-direction: column;
-      flex-basis: 50%;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-transform: translateX(0%) translateZ(0px);
+      -moz-transform: translateX(0%) translateZ(0px);
+      transform: translateX(0%) translateZ(0px);
+      transition: 1s;
 
       .title-decoration {
         flex-basis: 50%;
@@ -88,7 +91,7 @@
         .title-decoration {
           background: $color-3-opacity;
           $text-shadow: ();
-          @for $i from 1 through 30 {
+          @for $i from 1 through 25 {
             $text-shadow: $text-shadow, 1px * $i 1px * $i $color-1;
           }
           text-shadow: 0 0 0px, $text-shadow;
@@ -97,15 +100,19 @@
     } /* right-bloc-light */
 
     .left-bloc-dark {
-      justify-content: center;
-      align-items: center;
-      flex-basis: 50%;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-transform: translateX(100%) translateZ(0px);
+      -moz-transform: translateX(100%) translateZ(0px);
+      transform: translateX(100%) translateZ(0px);
+      transition: 1s;
       background-color: $color-1-op-strong;
       height: 100%;
       color: $color-3;
       .text-container {
-        width: 350px;
-        margin: 25% auto;
+        width: 400px;
+        margin: 10% auto;
         .content {
           position: relative;
           font-size: 0.85em;
@@ -117,6 +124,28 @@
       }
     } /* .left-bloc-dark */
   } /* .section-container */
+  &.activ-section {
+    .section-container {
+      .right-bloc-light {
+        &.activ-section {
+          -webkit-transform: translateX(-100%) translateZ(0px) !important;
+          -moz-transform: translateX(-100%) translateZ(0px) !important;
+          transform: translateX(-100%) translateZ(0px) !important;
+          transition: 1s;
+          transition-delay: 0.8s;
+        } /* &.activ-section */
+      } /* .right-bloc-light */
+      .left-bloc-dark {
+        &.activ-section {
+          -webkit-transform: translateX(0%) translateZ(0px) !important;
+          -moz-transform: translateX(0%) translateZ(0px) !important;
+          transform: translateX(0%) translateZ(0px) !important;
+          transition: 1s;
+          transition-delay: 1.2s;
+        } /* &.activ-section */
+      } /* .left-bloc-dark */
+    } /* .section-container */
+  } /* &.activ-section */
 
   @media screen and (max-width: 900px) {
     border: 5px solid $color-3;
@@ -129,19 +158,24 @@
   // ************************************************************************************************
   // *** Smartphone - paysage
   // ************************************************************************************************
-  @media screen and (max-width: 900px) and (max-height: 480px) {
+  @media screen and (max-width: 900px) and (max-height: 820px) {
     .section-container {
-      flex-direction: row;
+      flex-direction: column;
 
       .right-bloc-light {
-        flex-basis: 30%;
         .title-decoration {
           font-size: 4em;
         }
       } /* .right-bloc-light */
 
       .left-bloc-dark {
-        flex-basis: 70%;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-transform: translateX(100%) translateZ(0px);
+        -moz-transform: translateX(100%) translateZ(0px);
+        transform: translateX(100%) translateZ(0px);
+        transition: 1s;
         .text-container {
           flex-direction: row;
           width: 500px;
@@ -157,6 +191,29 @@
         } /* .text-container */
       } /* .left-bloc-dark */
     } /* .section-container */
+    &.activ-section {
+      .section-container {
+        .right-bloc-light {
+          &.activ-section {
+            -webkit-transform: translateX(-100%) translateZ(0px) !important;
+            -moz-transform: translateX(-100%) translateZ(0px) !important;
+            transform: translateX(-100%) translateZ(0px) !important;
+            transition: 1s;
+            transition-delay: 0.8s;
+          } /* &.activ-section */
+        } /* .right-bloc-light */
+        .left-bloc-dark {
+          &.activ-section {
+            -webkit-transform: translateX(0%) translateZ(0px) !important;
+            -moz-transform: translateX(0%) translateZ(0px) !important;
+            transform: translateX(0%) translateZ(0px) !important;
+            transition: 1s;
+            transition-delay: 1.2s;
+          } /* &.activ-section */
+        } /* .left-bloc-dark */
+      } /* .section-container */
+    } /* &.activ-section */
+    /* tablettes et ordinateurs */
   } /* @media screen and (max-width: 900px) and (max-height: 480px) */
 
   // ************************************************************************************************
@@ -164,7 +221,6 @@
   // ************************************************************************************************
   @media screen and (max-width: 480px) and (max-height: 900px) {
     .section-container {
-      flex-direction: column-reverse;
       .left-bloc-dark {
         position: absolute;
         width: 100%;
@@ -259,22 +315,7 @@
     } /* .section-container */
   } /* @media screen and (max-width: 480px) and (max-height: 680px) */
 
-  @media only screen and (min-width: 768px) and (min-height: 800px) {
-    .section-container {
-      .left-bloc-dark {
-        padding-top: 70px;
-        .text-container {
-          width: 300px;
-          .content {
-            font-size: 1em;
-          } /* .content */
-        }
-      } /* .left-bloc-dark */
-    }
-    /* tablettes et ordinateurs */
-  }
-
-  @media only screen and (min-width: 768px) and (max-height: 800px) {
+  @media only screen and (max-width: 767px) and (max-height: 800px) {
     .section-container {
       .left-bloc-dark {
         .text-container {
@@ -309,8 +350,7 @@
           }
         }
       } /* .left-bloc-dark */
-    }
-    /* tablettes et ordinateurs */
+    } /* section-container */
   }
 } /* section */
 

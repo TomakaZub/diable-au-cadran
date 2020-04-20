@@ -47,19 +47,5 @@
         }
       } /* li.pager */
     }
-
-    &.custom-section-2 {
-      .item {
-        background: $color-1;
-        background-clip: padding-box;
-      }
-      &[disabled] {
-        .item {
-          background: $color-3;
-          border: 5px solid $color-1;
-          cursor: pointer;
-        }
-      }
-    } /* &.custom-section-2  */
   } /* pager-item  */
 }

@@ -1,14 +1,11 @@
 import React, { useContext } from "react"
 import FirebaseContext from "../../../firebase/context"
-import useCustomUx from "../../../utils/hooks/useCustomUx"
-import PropTypes from "prop-types"
 import "./style/style.css"
 
 export const SectionControler = (props) => {
   const { appContext, setAppContext } = useContext(FirebaseContext)
   const { getCurrentSlideIndex } = props
   const currentSlideIndex = getCurrentSlideIndex()
-  const customClass = useCustomUx()
 
   const renderSlidesNumbers = (
     currentSlideIndex,
@@ -51,7 +48,7 @@ export const SectionControler = (props) => {
   return (
     <>
       {/* MENU */}
-      <div className={`main-menu ${customClass}`}>
+      <div className={`main-menu`}>
         <div
           className={
             appContext.isMenuOpen ? "list-item-menu open" : "list-item-menu"
@@ -78,7 +75,7 @@ export const SectionControler = (props) => {
         </div>
       </div>
       {/* PAGER */}
-      <div className={`pager-item ${customClass}`}>
+      <div className={`pager-item`}>
         {renderSlidesNumbers(currentSlideIndex, "item", false)}
       </div>
     </>

@@ -17,7 +17,6 @@
           animation-delay: 0.5s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  /* &.custom-section-2  */
 }
 
 @media screen and (max-width: 850px) {
@@ -57,17 +56,6 @@
 .sections .pager-item .item[disabled] .item {
   background: #0d0d0d;
   border: 5px solid white;
-  cursor: pointer;
-}
-
-.sections .pager-item.custom-section-2 .item {
-  background: #0d0d0d;
-  background-clip: padding-box;
-}
-
-.sections .pager-item.custom-section-2[disabled] .item {
-  background: white;
-  border: 5px solid #0d0d0d;
   cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */

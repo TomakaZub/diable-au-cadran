@@ -21,12 +21,6 @@
     font-weight: bold;
   } /* site-name */
 
-  &.custom-section-3 {
-    .site-name {
-      color: $color-1;
-    } /* btn-menu */
-  } /* &.custom-section-3 */
-
   &.custom-section-4 {
     .site-name {
       left: 40px;
@@ -48,13 +42,6 @@
     } /* site-name */
   } /* @media screen */
 } /* .header */
-@media screen and (max-width: 420px) and (max-height: 900px) {
-  &.custom-section-3 {
-    .site-name {
-      color: $color-3 !important;
-    } /* site-name */
-  } /* &.custom-section-3 */
-} /* @media screen */
 
 // ********************************************************************************/
 // ***********     Key Frames      ************************************************/

@@ -10,7 +10,8 @@
 .section1.service .section-container {
   -webkit-animation: sliding-background 40s linear infinite !important;
           animation: sliding-background 40s linear infinite !important;
-  background: url("../../../../img/pendules.jpg") no-repeat right/120%;
+  background: url("../../../../img/atelier-rouge.jpg") no-repeat right/120%;
+  background-size: cover !important;
   /* left-bloc-dark */
 }
 
@@ -23,8 +24,8 @@
 .section1.service .section-container .left-bloc-dark:after {
   display: block;
   content: "";
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   position: absolute;
   top: -40px;
   right: -40px;
@@ -35,8 +36,8 @@
 .section1.service .section-container .left-bloc-dark:before {
   display: block;
   content: "";
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   position: absolute;
   bottom: -40px;
   left: -40px;
