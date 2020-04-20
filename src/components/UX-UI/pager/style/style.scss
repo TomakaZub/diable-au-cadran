@@ -17,7 +17,7 @@
       display: none;
     }
 
-    .section-page {
+    .item {
       display: block;
       margin-bottom: 20px;
       width: 3px;
@@ -39,30 +39,27 @@
         border: 5px solid $color-3;
         cursor: pointer;
       }
-    } /* li.pager */
-
-    &[disabled],
-    .active-top {
-      .section-page {
-        background: $color-1;
-        border: 5px solid $color-3;
-        cursor: pointer;
-      }
+      &[disabled] {
+        .item {
+          background: $color-1;
+          border: 5px solid $color-3;
+          cursor: pointer;
+        }
+      } /* li.pager */
     }
 
     &.custom-section-2 {
-      .section-page {
+      .item {
         background: $color-1;
         background-clip: padding-box;
       }
-      &[disabled],
-      .active-top {
-        .section-page {
+      &[disabled] {
+        .item {
           background: $color-3;
           border: 5px solid $color-1;
           cursor: pointer;
         }
       }
     } /* &.custom-section-2  */
-  } /* ul.pager-item  */
+  } /* pager-item  */
 }

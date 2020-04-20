@@ -1,8 +1,8 @@
-import React from "react"
+// import React from "react"
 
-const Pager = (props) => {
-  console.log(props)
-  return <div className={"pager-item"}></div>
-}
+// const Pager = (props) => {
+//   console.log(props)
+//   return <div className={"pager-item"}></div>
+// }
 
-export default Pager
+// export default Pager

@@ -1,5 +1,5 @@
 .sections {
-  /* ul.pager-item  */
+  /* pager-item  */
 }
 
 .sections .pager-item {
@@ -17,7 +17,6 @@
           animation-delay: 0.5s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  /* li.pager */
   /* &.custom-section-2  */
 }
 
@@ -27,7 +26,7 @@
   }
 }
 
-.sections .pager-item .section-page {
+.sections .pager-item .item {
   display: block;
   margin-bottom: 20px;
   width: 3px;
@@ -41,33 +40,32 @@
   cursor: pointer;
   -webkit-box-sizing: content-box !important;
           box-sizing: content-box !important;
+  /* li.pager */
 }
 
-.sections .pager-item .section-page:hover {
+.sections .pager-item .item:hover {
   border: 5px solid rgba(255, 255, 255, 0.9);
   background: #0d0d0d;
 }
 
-.sections .pager-item .section-page[disabled] {
+.sections .pager-item .item[disabled] {
   background: #0d0d0d;
   border: 5px solid white;
   cursor: pointer;
 }
 
-.sections .pager-item[disabled] .section-page,
-.sections .pager-item .active-top .section-page {
+.sections .pager-item .item[disabled] .item {
   background: #0d0d0d;
   border: 5px solid white;
   cursor: pointer;
 }
 
-.sections .pager-item.custom-section-2 .section-page {
+.sections .pager-item.custom-section-2 .item {
   background: #0d0d0d;
   background-clip: padding-box;
 }
 
-.sections .pager-item.custom-section-2[disabled] .section-page,
-.sections .pager-item.custom-section-2 .active-top .section-page {
+.sections .pager-item.custom-section-2[disabled] .item {
   background: white;
   border: 5px solid #0d0d0d;
   cursor: pointer;

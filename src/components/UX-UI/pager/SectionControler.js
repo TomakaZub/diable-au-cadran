@@ -1,12 +1,14 @@
 import React, { useContext } from "react"
 import FirebaseContext from "../../../firebase/context"
+import useCustomUx from "../../../utils/hooks/useCustomUx"
 import PropTypes from "prop-types"
 import "./style/style.css"
 
 export const SectionControler = (props) => {
   const { appContext, setAppContext } = useContext(FirebaseContext)
-  const { getCurrentSlideIndex, classNameMenu, classNamePager } = props
+  const { getCurrentSlideIndex } = props
   const currentSlideIndex = getCurrentSlideIndex()
+  const customClass = useCustomUx()
 
   const renderSlidesNumbers = (
     currentSlideIndex,
@@ -39,7 +41,7 @@ export const SectionControler = (props) => {
       }
       slidesNumbers.push(
         <div {...buttonProps}>
-          {displayLabel && appContext.sections[i].title}.
+          {displayLabel && appContext.sections[i].title}
         </div>
       )
     }
@@ -49,7 +51,7 @@ export const SectionControler = (props) => {
   return (
     <>
       {/* MENU */}
-      <div className={classNameMenu}>
+      <div className={`main-menu ${customClass}`}>
         <div
           className={
             appContext.isMenuOpen ? "list-item-menu open" : "list-item-menu"
@@ -76,24 +78,19 @@ export const SectionControler = (props) => {
         </div>
       </div>
       {/* PAGER */}
-      <div className={classNamePager}>
-        {renderSlidesNumbers(currentSlideIndex, "section-page", false)}
+      <div className={`pager-item ${customClass}`}>
+        {renderSlidesNumbers(currentSlideIndex, "item", false)}
       </div>
     </>
   )
 }
 
-SectionControler.propTypes = {
-  className: PropTypes.string,
-  getCurrentSlideIndex: PropTypes.func.isRequired,
-  onNext: PropTypes.func.isRequired,
-  onPrev: PropTypes.func.isRequired,
-  scrollToSlide: PropTypes.func.isRequired,
-  slidesCount: PropTypes.number.isRequired,
-  style: PropTypes.object,
-}
-
-SectionControler.defaultProps = {
-  classNamePager: "pager-item",
-  classNameMenu: "main-menu",
-}
+// SectionControler.propTypes = {
+//   className: PropTypes.string,
+//   getCurrentSlideIndex: PropTypes.func.isRequired,
+//   onNext: PropTypes.func.isRequired,
+//   onPrev: PropTypes.func.isRequired,
+//   scrollToSlide: PropTypes.func.isRequired,
+//   slidesCount: PropTypes.number.isRequired,
+//   style: PropTypes.object,
+// }

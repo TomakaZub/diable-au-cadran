@@ -15,7 +15,7 @@ const Header = (listMenu, listPager) => {
   return (
     <div className={`header ${customClass}`}>
       <div className='site-name'>{siteName}</div>
-      <Menu />
+      {/* <Menu /> */}
     </div>
   )
 }
