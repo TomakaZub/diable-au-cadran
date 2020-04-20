@@ -21,22 +21,6 @@
     font-weight: bold;
   } /* site-name */
 
-  .btn-menu {
-    cursor: pointer;
-    position: absolute;
-    right: -100px;
-    margin-top: 40px;
-    animation-name: slide-to-the-left;
-    animation-duration: 1s;
-    animation-delay: 0.5s;
-    animation-fill-mode: forwards;
-    padding: 10px 0 10px 10px;
-
-    .menu {
-      color: $color-3;
-    }
-  } /* btn-menu */
-
   &.custom-section-2 {
     .btn-menu {
       .menu {

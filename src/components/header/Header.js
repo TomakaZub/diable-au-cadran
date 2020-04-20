@@ -1,11 +1,12 @@
 import React, { useContext } from "react"
 import Menu from "../menu"
+import Pager from "../UX-UI/pager/Pager"
 import FirebaseContext from "../../firebase/context"
 import useCustomUx from "../../utils/hooks/useCustomUx"
 
 import "./style/style.css"
 
-const Header = () => {
+const Header = (listMenu, listPager) => {
   const { appContext } = useContext(FirebaseContext)
   const customClass = useCustomUx()
 
@@ -16,6 +17,7 @@ const Header = () => {
     <div className={`header ${customClass}`}>
       <div className='site-name'>{siteName}</div>
       <Menu />
+      <Pager listPager={listPager} />
     </div>
   )
 }

@@ -1,12 +1,13 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState, useEffect } from "react"
+import Header from "./components/header/Header"
+import { FullPage, Slide } from "react-full-page"
 import firebase, { FirebaseContext } from "./firebase"
 import Loading from "./components/UX-UI/loading/Loading"
 import HomePage from "./components/sections/homePage/"
 import Service from "./components/sections/service/"
 import SavoirFaire from "./components/sections/savoirFaire"
 import Contact from "./components/sections/contact/"
-import { Pager } from "./components/UX-UI/pager/Pager"
-import Header from "./components/header/Header"
+import { SectionControler } from "./components/UX-UI/pager/SectionControler"
 
 import "./style/common.css"
 import "./style/section.css"
@@ -25,19 +26,30 @@ export const App = () => {
   const [appContext, setAppContext] = useState(INITIAL_CONTEXT)
 
   /**
+   * Met à jour l'id de la section active dans le context
+   * @param {from, to} index de départ et d'arrivé
+   */
+  const handleActivSection = ({ to }) => {
+    const idActivSection = appContext.sections[to].id
+    setAppContext((prev) => {
+      return {
+        ...prev,
+        idActivSection: idActivSection,
+        isChanging: false,
+      }
+    })
+  }
+  /**
    * Met à jour le context (sections) avec les données reçues de firebase.
    * Injection des sections dans le context.
    * @param {*} snapshot
    */
   const updateSectionsContextWithFirebase = (snapshot) => {
-    let count = 0
     const sections = snapshot.docs.map((doc) => {
       const section = {
         id: doc.id, // on ajoute l'identifiant du document dans la section
-        // isActive: count === 0 ? true : false, // on ajoute la possibilité de savoir si la section est active ou non
         ...doc.data(), // on ajoute le reste des données
       }
-      count++
       return section
     })
 
@@ -85,42 +97,31 @@ export const App = () => {
     return doIt()
   }, [])
 
-  // useEffect(() => {
-  //   let scrollPos = 0
-  //   const _mouseMove = (e) => {
-  //     if (document.body.getBoundingClientRect().top > scrollPos) {
-  //       console.log("UP")
-  //     } else {
-  //       console.log("DOWN")
-  //       scrollTo()
-  //     }
-  //     // saves the new position for iteration.
-  //     scrollPos = document.body.getBoundingClientRect().top
-  //   }
-
-  //   document.addEventListener("scroll", _mouseMove)
-
-  //   return () => {
-  //     document.removeEventListener("scroll", _mouseMove)
-  //   }
-  // }, [])
-
   if (!appContext.sections.length) {
     return <Loading />
   } else {
     return (
       <FirebaseContext.Provider value={{ appContext, setAppContext, firebase }}>
         <Header />
-        <Pager />
         <div className='sections'>
-          {/* <ReactPageScroller
-          customPageNumber={this.state.currentPage}
-          > */}
-          <HomePage section={appContext.sections[0]} />
-          <Service section={appContext.sections[1]} />
-          <SavoirFaire section={appContext.sections[2]} />
-          <Contact section={appContext.sections[3]} />
-          {/* </ReactPageScroller> */}
+          <FullPage
+            controls={SectionControler}
+            duration={1500}
+            afterChange={handleActivSection}
+          >
+            <Slide>
+              <HomePage section={appContext.sections[0]} />
+            </Slide>
+            <Slide>
+              <Service section={appContext.sections[1]} />
+            </Slide>
+            <Slide>
+              <SavoirFaire section={appContext.sections[2]} />
+            </Slide>
+            <Slide>
+              <Contact section={appContext.sections[3]} />
+            </Slide>
+          </FullPage>
         </div>
       </FirebaseContext.Provider>
     )

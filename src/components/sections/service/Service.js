@@ -7,6 +7,7 @@ const Service = ({ section, isChanging, filterFx, isActivSection }) => {
   if (section) {
     return (
       <div
+        id='section1'
         className={`section section${section.tech.order} ${isChanging} ${isActivSection} service`}
       >
         <div className={`section-container ${filterFx}`}>
@@ -14,7 +15,9 @@ const Service = ({ section, isChanging, filterFx, isActivSection }) => {
             <div className='text-container'>
               <div className='content'>{addLineBreaks(section.content1)}</div>
               <h2
-                class={`${isActivSection ? "anim-title activ" : "anim-title"}`}
+                className={`${
+                  isActivSection ? "anim-title activ" : "anim-title"
+                }`}
               >
                 <span>100% artisanal</span>
                 <span>Découvrez l'atelier !</span>

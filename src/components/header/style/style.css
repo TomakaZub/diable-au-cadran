@@ -6,7 +6,6 @@
   height: 10%;
   width: 100%;
   /* site-name */
-  /* btn-menu */
   /* &.custom-section-2 */
   /* &.custom-section-3 */
   /* &.custom-section-4 */
@@ -29,26 +28,6 @@
   padding: 10px 0;
   color: white;
   font-weight: bold;
-}
-
-.header .btn-menu {
-  cursor: pointer;
-  position: absolute;
-  right: -100px;
-  margin-top: 40px;
-  -webkit-animation-name: slide-to-the-left;
-          animation-name: slide-to-the-left;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-delay: 0.5s;
-          animation-delay: 0.5s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  padding: 10px 0 10px 10px;
-}
-
-.header .btn-menu .menu {
-  color: white;
 }
 
 .header.custom-section-2 {

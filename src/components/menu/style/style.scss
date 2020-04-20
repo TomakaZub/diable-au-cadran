@@ -25,14 +25,15 @@
     -moz-transition: -moz-transform 500ms ease-in-out;
     transition: transform 500ms ease-in-out;
 
-    li.item-menu {
+    .item-menu {
       color: $color-3;
       display: block;
       padding: 5px 10px;
       cursor: pointer;
       font-size: 2em;
+      background-color: none;
 
-      &.active {
+      &[disabled] {
         color: $color-1;
       }
     } /* li.item-menu */
@@ -49,14 +50,14 @@
     @media screen and (max-width: 480px) and (max-height: 900px) {
       padding: 25% 15% 0 10%;
       min-width: 100%;
-      li.item-menu {
+      .item-menu {
         font-size: 1.5em;
       }
     }
 
     @media screen and (max-width: 900px) and (max-height: 480px) {
       padding: 8% 10% 0 5%;
-      li.item-menu {
+      .item-menu {
         font-size: 1em;
       }
       .adress {
@@ -69,4 +70,20 @@
   .list-item-menu.open {
     transform: translateX(0%);
   } /* .list-item-menu.open */
+
+  .btn-menu {
+    cursor: pointer;
+    position: absolute;
+    right: -100px;
+    margin-top: 40px;
+    animation-name: slide-to-the-left;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    padding: 10px 0 10px 10px;
+
+    .menu {
+      color: $color-3;
+    }
+  } /* btn-menu */
 } /* .main-menu */

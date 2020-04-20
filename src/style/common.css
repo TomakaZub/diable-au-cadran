@@ -13,10 +13,16 @@ html,
 body {
   background-color: #0d0d0d;
   font-family: "Helvetica", arial, sans-serif;
+  height: 100vh;
 }
 
-html #root .container,
-body #root .container {
+html #root .sections,
+body #root .sections {
+  height: 100vh;
+}
+
+html #root .sections .container,
+body #root .sections .container {
   position: relative;
 }
 /*# sourceMappingURL=common.css.map */
