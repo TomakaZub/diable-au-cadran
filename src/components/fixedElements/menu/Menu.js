@@ -2,7 +2,6 @@ import React from "react"
 import "./style/style.css"
 
 const Menu = ({ listItem, appContext, setAppContext }) => {
-  console.log(listItem)
   const settings = appContext.globalSettings[0]
   return (
     <div className={`main-menu`}>
