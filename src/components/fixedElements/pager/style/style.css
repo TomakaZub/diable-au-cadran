@@ -17,6 +17,7 @@
           animation-delay: 0.5s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
+  /* item */
 }
 
 @media screen and (max-width: 850px) {
@@ -39,7 +40,7 @@
   cursor: pointer;
   -webkit-box-sizing: content-box !important;
           box-sizing: content-box !important;
-  /* li.pager */
+  /* &[disabled] */
 }
 
 .sections .pager-item .item:hover {

@@ -5,11 +5,7 @@ import "antd/dist/antd.css"
 
 import "./style/style.css"
 
-const Contact = ({ section, isChanging, filterFx }) => {
-  // const [userName, setUserName] = useState("")
-  // const [email, setEmail] = useState("")
-  // const [message, setMessage] = useState("")
-
+const Contact = ({ section, isChanging, filterFx, appContext }) => {
   const layout = {
     labelCol: {
       sm: { span: 24 },
@@ -18,16 +14,6 @@ const Contact = ({ section, isChanging, filterFx }) => {
       sm: { span: 24 },
     },
   }
-
-  // const handleChange = (key, value) => {
-  //   let inputValue = {}
-  //   inputValue[key] = value
-
-  //   setEmail((prev) => {
-  //     return { ...prev, inputValue }
-  //   })
-  // }
-
   const validateMessages = {
     // eslint-disable-next-line no-template-curly-in-string
     required: "${label} est nécéssaire.",
@@ -41,22 +27,23 @@ const Contact = ({ section, isChanging, filterFx }) => {
   }
 
   if (section) {
+    const settings = appContext.globalSettings[0]
     return (
       <div
         className={`section section${section.tech.order} ${isChanging} contact`}
       >
         <div className={`section-container ${filterFx}`}>
           <div className='left-side'>
-            {/* <div>Adresse</div> */}
             <MapWrapper />
-            {/* <div>Map</div> */}
           </div>
           <div className='right-side'>
             <div className='adress'>
-              <h1>Contact</h1>
-              <h3>17 rue de la Vicomte</h3>
-              <h3>61200 Argentan</h3>
-              <h3>02 33 36 07 93</h3>
+              <h3>Contact</h3>
+              <span>{settings && settings.adress}</span>
+              <span>
+                {settings && settings.zipcode} - {settings && settings.city}
+              </span>
+              <span>{settings && settings.phone}</span>
             </div>
             <Form
               {...layout}

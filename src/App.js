@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react"
-import Header from "./components/header/Header"
 import { FullPage, Slide } from "react-full-page"
 import firebase, { FirebaseContext } from "./firebase"
 import Loading from "./components/UX-UI/loading/Loading"
@@ -7,7 +6,7 @@ import HomePage from "./components/sections/homePage/"
 import Service from "./components/sections/service/"
 import SavoirFaire from "./components/sections/savoirFaire"
 import Contact from "./components/sections/contact/"
-import { SectionControler } from "./components/UX-UI/pager/SectionControler"
+import { SectionControler } from "./components/SectionControler"
 
 import "./style/common.css"
 import "./style/section.css"
@@ -115,11 +114,8 @@ export const App = () => {
   if (!appContext.sections.length) {
     return <Loading />
   } else {
-    document.documentElement.style.setProperty("--my-variable-name", "pink")
-
     return (
       <FirebaseContext.Provider value={{ appContext, setAppContext, firebase }}>
-        <Header />
         <div className='sections'>
           <FullPage
             controls={SectionControler}

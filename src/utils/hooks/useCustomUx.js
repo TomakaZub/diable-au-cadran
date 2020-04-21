@@ -3,14 +3,14 @@ import FirebaseContext from "../../firebase/context"
 
 const useCustomUx = () => {
   const { appContext } = useContext(FirebaseContext)
-  const [customUx, setCustomUx] = useState()
+  const [customUx, setCustomUx] = useState("")
 
   useEffect(() => {
-    appContext.sections.map((section) => {
-      if (section.id === appContext.idActivSection) {
-        setCustomUx(`custom-section-${section.tech.order + 1}`)
-      }
-    })
+    appContext.sections
+      .filter((section) => section.id === appContext.idActivSection)
+      .map((section) => {
+        return setCustomUx(`custom-section-${section.tech.order + 1}`)
+      })
   }, [appContext.idActivSection])
 
   return customUx

@@ -37,6 +37,11 @@
 }
 
 .section3.contact .section-container .right-side .adress h3 {
+  font-size: 2em;
+}
+
+.section3.contact .section-container .right-side .adress span {
+  display: block;
   color: white;
 }
 
@@ -127,10 +132,10 @@
     padding-top: 10px;
     padding-bottom: 10px;
   }
-  .section3.contact .section-container .right-side .adress h1 {
+  .section3.contact .section-container .right-side .adress h3 {
     display: none;
   }
-  .section3.contact .section-container .right-side .adress h3 {
+  .section3.contact .section-container .right-side .adress span {
     font-size: 0.9em;
     margin-bottom: 0;
   }

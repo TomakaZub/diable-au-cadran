@@ -45,7 +45,7 @@
           border: 5px solid $color-3;
           cursor: pointer;
         }
-      } /* li.pager */
-    }
+      } /* &[disabled] */
+    } /* item */
   } /* pager-item  */
 }
