@@ -1,8 +1,7 @@
 import React from "react"
+import "./style/style.css"
 import Scroller from "../../UX-UI/scroller/Scroller"
 import MouseTracker from "../../UX-UI/mouseTracker/MouseTracker"
-
-import "./style/style.css"
 
 /**
  * Home page du site

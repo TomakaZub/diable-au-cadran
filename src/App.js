@@ -1,15 +1,20 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, lazy, Suspense } from "react"
 import { FullPage, Slide } from "react-full-page"
 import firebase, { FirebaseContext } from "./firebase"
 import Loading from "./components/UX-UI/loading/Loading"
 import HomePage from "./components/sections/homePage/"
-import Service from "./components/sections/service/"
-import SavoirFaire from "./components/sections/savoirFaire"
-import Contact from "./components/sections/contact/"
+// import Service from "./components/sections/service/"
+// import SavoirFaire from "./components/sections/savoirFaire"
+// import Contact from "./components/sections/contact/"
+
 import { SectionControler } from "./components/SectionControler"
 
 import "./style/common.css"
 import "./style/section.css"
+
+const Service = lazy(() => import("./components/sections/service/"))
+const SavoirFaire = lazy(() => import("./components/sections/savoirFaire"))
+const Contact = lazy(() => import("./components/sections/contact/"))
 
 // Context de l'application
 const INITIAL_CONTEXT = {
@@ -29,19 +34,13 @@ export const App = () => {
    * @param {from, to} index de départ et d'arrivé
    */
   const afterChange = ({ from, to }) => {
-    if (appContext.isMenuOpen) {
-      setAppContext((prev) => {
-        return { ...prev, isMenuOpen: false, isChanging: true }
-      })
-    } else {
-      setAppContext((prev) => {
-        return {
-          ...prev,
-          idActivSection: appContext.sections[to].id,
-          isChanging: false,
-        }
-      })
-    }
+    setAppContext((prev) => {
+      return {
+        ...prev,
+        idActivSection: appContext.sections[to].id,
+        isChanging: false,
+      }
+    })
   }
 
   const beforeChange = () => {
@@ -106,6 +105,7 @@ export const App = () => {
 
     const doIt = () => {
       getSections()
+
       getGlobalSettings()
     }
     return doIt()
@@ -114,6 +114,7 @@ export const App = () => {
   if (!appContext.sections.length) {
     return <Loading />
   } else {
+    console.log("ici")
     return (
       <FirebaseContext.Provider value={{ appContext, setAppContext, firebase }}>
         <div className='sections'>
@@ -127,13 +128,19 @@ export const App = () => {
               <HomePage section={appContext.sections[0]} />
             </Slide>
             <Slide>
-              <Service section={appContext.sections[1]} />
+              <Suspense fallback={<div>loading</div>}>
+                <Service section={appContext.sections[1]} />
+              </Suspense>
             </Slide>
             <Slide>
-              <SavoirFaire section={appContext.sections[2]} />
+              <Suspense fallback={<div>loading</div>}>
+                <SavoirFaire section={appContext.sections[2]} />
+              </Suspense>
             </Slide>
             <Slide>
-              <Contact section={appContext.sections[3]} />
+              <Suspense fallback={<div>loading</div>}>
+                <Contact section={appContext.sections[3]} />
+              </Suspense>
             </Slide>
           </FullPage>
         </div>
