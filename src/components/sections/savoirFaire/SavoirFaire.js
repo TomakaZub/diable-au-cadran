@@ -19,8 +19,8 @@ const SavoirFaire = ({ section, isChanging, filterFx, isActivSection }) => {
             </div>
           </div>
           <div className={`right-bloc-light ${isActivSection}`}>
-            <h1 className='title-decoration' data-text='SAVOIR'>
-              SAVOIR
+            <h1 className='title-decoration' data-text={section.title}>
+              {section.title}
             </h1>
           </div>
         </div>

@@ -29,24 +29,29 @@ export const App = () => {
    * Met à jour l'id de la section active dans le context
    * @param {from, to} index de départ et d'arrivé
    */
-  const afterChange = ({ to }) => {
-    const idActivSection = appContext.sections[to].id
+  const afterChange = ({ from, to }) => {
+    if (appContext.isMenuOpen) {
+      setAppContext((prev) => {
+        return { ...prev, isMenuOpen: false, isChanging: true }
+      })
+    } else {
+      setAppContext((prev) => {
+        return {
+          ...prev,
+          idActivSection: appContext.sections[to].id,
+          isChanging: false,
+        }
+      })
+    }
+  }
+
+  const beforeChange = () => {
     setAppContext((prev) => {
       return {
         ...prev,
-        idActivSection: idActivSection,
-        isChanging: false,
+        isChanging: true,
       }
     })
-
-    // if (appContext.isMenuOpen) {
-    //   setAppContext((prev) => {
-    //     return { ...prev, isMenuOpen: false, isChanging: true }
-    //   })
-    // } else {
-    //   setAppContext((prev) => {
-    //     return { ...prev, isChanging: true }
-    //   })
   }
 
   /**
@@ -120,6 +125,7 @@ export const App = () => {
             controls={SectionControler}
             duration={1500}
             afterChange={afterChange}
+            beforeChange={beforeChange}
           >
             <Slide>
               <HomePage section={appContext.sections[0]} />

@@ -20,7 +20,7 @@
   // Dès qu'un utilisateur clique sur le pager ou un item menu
   &.isChanging {
     transition: all 0.5s linear;
-    border: 20px solid $color-4;
+    border: 10px solid $color-4;
     pointer-events: none !important;
   } /* &.isChanging */
 
@@ -336,6 +336,7 @@
           margin-top: 60px;
           width: 460px;
           .content {
+            margin: auto;
             font-size: 0.9em;
             width: 100%;
           } /* .content */
