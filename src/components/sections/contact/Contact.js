@@ -6,6 +6,8 @@ import "antd/dist/antd.css"
 import "./style/style.css"
 
 const Contact = ({ section, isChanging, filterFx, appContext }) => {
+  const [form] = Form.useForm()
+
   const layout = {
     labelCol: {
       sm: { span: 24 },
@@ -23,7 +25,7 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
   }
 
   const onFinish = (values) => {
-    console.log("submit")
+    form.resetFields()
   }
 
   if (section) {
@@ -47,10 +49,12 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
             </div>
             <Form
               {...layout}
+              form={form}
               onFinish={onFinish}
               validateMessages={validateMessages}
               className='form-contact'
               labelAlign='left'
+              data-netlify='true'
             >
               <Form.Item
                 name={["user", "name"]}
@@ -85,6 +89,9 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
                 className='input-field'
               >
                 <Input.TextArea autoSize={{ minRows: 8 }} />
+              </Form.Item>
+              <Form.Item name={["user", "captcha"]} className='input-field'>
+                <div data-netlify-recaptcha='true' />
               </Form.Item>
               <Button htmlType='submit' className='send-email-btn'>
                 Envoyer un email
