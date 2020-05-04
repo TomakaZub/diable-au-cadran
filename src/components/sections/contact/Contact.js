@@ -49,6 +49,7 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
     })
       .then((response) => {
         if (response.ok) {
+          console.log(response)
           alert("Success!")
         } else {
           console.log(response)
