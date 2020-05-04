@@ -37,7 +37,8 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
   }
 
   const handleSubmit = (e) => {
-    fetch("/sites/daf1b9ff-a441-4a0f-9dfc-3aa13ecd8e0f/forms", {
+    // /sites/daf1b9ff-a441-4a0f-9dfc-3aa13ecd8e0f/forms -- GET
+    fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
