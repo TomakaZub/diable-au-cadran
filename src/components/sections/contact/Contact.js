@@ -39,7 +39,7 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
   const handleSubmit = (e) => {
     fetch("/", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      headers: { "Content-Type": "application/json" },
       body: encode({
         "form-name": "contact",
         name: name,
