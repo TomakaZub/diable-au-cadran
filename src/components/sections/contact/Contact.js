@@ -73,6 +73,7 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
         className={`section section${section.tech.order} ${isChanging} contact`}
       >
         <div className={`section-container ${filterFx}`}>
+          {/* Google Maps */}
           <div className='left-side'>
             <MapWrapper />
           </div>
@@ -91,6 +92,7 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
               name='contact'
               data-netlify='true'
               netlify-honeypot='bot-field'
+              netlify
               hidden
             >
               <input type='text' name='name' />
@@ -127,6 +129,7 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
                 rules={[
                   {
                     type: "email",
+                    required: true,
                   },
                 ]}
               >
