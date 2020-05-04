@@ -37,19 +37,24 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
   }
 
   const handleSubmit = (e) => {
-    const datas = {
-      "form-name": "contact",
-      name: name,
-      email: email,
-      message: message,
-    }
-
-    fetch("/", {
+    fetch("/sites/daf1b9ff-a441-4a0f-9dfc-3aa13ecd8e0f/forms", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(datas),
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": "contact",
+        name: name,
+        email: email,
+        message: message,
+      }),
     })
-      .then(() => alert("Success!"))
+      .then((response) => {
+        if (response.ok) {
+          alert("Success!")
+        } else {
+          console.log(response)
+          alert(response)
+        }
+      })
       .catch((error) => alert(error))
     form.resetFields()
     e.preventDefault()
