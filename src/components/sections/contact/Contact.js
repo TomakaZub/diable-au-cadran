@@ -37,15 +37,17 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
   }
 
   const handleSubmit = (e) => {
+    const datas = {
+      "form-name": "contact",
+      name: name,
+      email: email,
+      message: message,
+    }
+
     fetch("/", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
-        "form-name": "contact",
-        name: name,
-        email: email,
-        message: message,
-      }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(datas),
     })
       .then(() => alert("Success!"))
       .catch((error) => alert(error))
