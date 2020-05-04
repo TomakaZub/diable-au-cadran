@@ -114,7 +114,6 @@ export const App = () => {
   if (!appContext.sections.length) {
     return <Loading />
   } else {
-    console.log("ici")
     return (
       <FirebaseContext.Provider value={{ appContext, setAppContext, firebase }}>
         <div className='sections'>

@@ -93,7 +93,6 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
             <Form
               {...layout}
               form={form}
-              onFinish={handleSubmit}
               validateMessages={validateMessages}
               className='form-contact'
               labelAlign='left'
@@ -132,7 +131,11 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
               >
                 <Input.TextArea autoSize={{ minRows: 8 }} />
               </Form.Item>
-              <Button htmlType='submit' className='send-email-btn'>
+              <Button
+                htmlType='submit'
+                className='send-email-btn'
+                onClick={(e) => handleSubmit}
+              >
                 Envoyer un email
               </Button>
             </Form>
