@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import MapWrapper from "../../UX-UI/googleMaps/MapWrapper"
 import { Form, Input, Button } from "antd"
 import "antd/dist/antd.css"
@@ -7,6 +7,9 @@ import "./style/style.css"
 
 const Contact = ({ section, isChanging, filterFx, appContext }) => {
   const [form] = Form.useForm()
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [message, setMessage] = useState("")
 
   const layout = {
     labelCol: {
@@ -16,6 +19,7 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
       sm: { span: 24 },
     },
   }
+
   const validateMessages = {
     // eslint-disable-next-line no-template-curly-in-string
     required: "${label} est nécéssaire.",
@@ -24,9 +28,34 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
     },
   }
 
-  const onFinish = (values) => {
-    form.resetFields()
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&")
   }
+
+  const handleSubmit = (e) => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": "contact",
+        name: name,
+        email: email,
+        message: message,
+      }),
+    })
+      .then(() => alert("Success!"))
+      .catch((error) => alert(error))
+    form.resetFields()
+    e.preventDefault()
+  }
+
+  // const onFinish = (values) => {
+  //   form.resetFields()
+  // }
 
   if (section) {
     const settings = appContext.globalSettings[0]
@@ -47,21 +76,29 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
               </span>
               <span>{settings && settings.phone}</span>
             </div>
+
+            {/* Form hidden pour Netlify */}
+            <form name='contact' netlify netlify-honeypot='bot-field' hidden>
+              <input type='text' name='name' />
+              <input type='email' name='email' />
+              <textarea name='message'></textarea>
+            </form>
+
+            {/* Form affiché */}
             <Form
               {...layout}
               form={form}
-              onFinish={onFinish}
+              onFinish={handleSubmit}
               validateMessages={validateMessages}
               className='form-contact'
               labelAlign='left'
-              data-netlify='true'
-              method='POST'
             >
+              <input type='hidden' name='form-name' value='contact' />
               <Form.Item
                 name={["user", "name"]}
                 label='Nom + Prénom'
                 className='input-field'
-                // onChange={(e) => setUserName(e.target.value)}
+                onChange={(e) => setName(e.target.value)}
                 rules={[
                   {
                     required: true,
@@ -73,7 +110,7 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
               <Form.Item
                 name={["user", "email"]}
                 label='Email'
-                // onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
                 className='input-field'
                 rules={[
                   {
@@ -85,7 +122,7 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
               </Form.Item>
               <Form.Item
                 name={["user", "message"]}
-                // onChange={(e) => setMessage(e.target.value)}
+                onChange={(e) => setMessage(e.target.value)}
                 label='Message'
                 className='input-field'
               >
