@@ -86,13 +86,6 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
               <span>{settings && settings.phone}</span>
             </div>
 
-            {/* Form hidden pour Netlify */}
-            <form name='contact' netlify hidden>
-              <input type='text' name='name' />
-              <input type='email' name='email' />
-              <textarea name='message'></textarea>
-            </form>
-
             {/* Form affiché */}
             <Form
               {...layout}
@@ -101,7 +94,6 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
               className='form-contact'
               labelAlign='left'
             >
-              <input type='hidden' name='form-name' value='contact' />
               <Form.Item
                 name={["user", "name"]}
                 label='Nom + Prénom'
