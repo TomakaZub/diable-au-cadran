@@ -39,7 +39,7 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
   const handleSubmit = (e) => {
     fetch("/", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
         "form-name": "contact",
         name: name,
@@ -134,7 +134,7 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
               <Button
                 htmlType='submit'
                 className='send-email-btn'
-                onClick={(e) => handleSubmit}
+                onClick={handleSubmit}
               >
                 Envoyer un email
               </Button>
