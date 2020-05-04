@@ -87,7 +87,13 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
             </div>
 
             {/* Form hidden pour Netlify */}
-            <form name='contact' netlify-honeypot='bot-field' netlify hidden>
+            <form
+              name='contact'
+              netlify
+              netlify-honeypot='bot-field'
+              data-netlify='true'
+              hidden
+            >
               <input type='text' name='name' />
               <input type='email' name='email' />
               <textarea name='message'></textarea>
