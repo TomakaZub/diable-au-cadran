@@ -55,6 +55,7 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
               className='form-contact'
               labelAlign='left'
               data-netlify='true'
+              method='POST'
             >
               <Form.Item
                 name={["user", "name"]}
