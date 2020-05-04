@@ -54,7 +54,6 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
           alert("Success!")
         } else {
           console.log(response)
-          alert(response)
         }
       })
       .catch((error) => alert(error))
@@ -88,13 +87,7 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
             </div>
 
             {/* Form hidden pour Netlify */}
-            <form
-              name='contact'
-              data-netlify='true'
-              netlify-honeypot='bot-field'
-              netlify
-              hidden
-            >
+            <form name='contact' netlify-honeypot='bot-field' netlify hidden>
               <input type='text' name='name' />
               <input type='email' name='email' />
               <textarea name='message'></textarea>
@@ -108,6 +101,7 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
               className='form-contact'
               labelAlign='left'
             >
+              <input type='hidden' name='form-name' value='contact' />
               <Form.Item
                 name={["user", "name"]}
                 label='Nom + Prénom'
