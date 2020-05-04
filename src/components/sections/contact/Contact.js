@@ -93,7 +93,6 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
               className='form-contact'
               labelAlign='left'
             >
-              <input type='hidden' name='form-name' value='contact' />
               <Form.Item
                 name={["user", "name"]}
                 label='Nom + Prénom'
@@ -127,9 +126,6 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
                 className='input-field'
               >
                 <Input.TextArea autoSize={{ minRows: 8 }} />
-              </Form.Item>
-              <Form.Item name={["user", "captcha"]} className='input-field'>
-                <div data-netlify-recaptcha='true' />
               </Form.Item>
               <Button htmlType='submit' className='send-email-btn'>
                 Envoyer un email
