@@ -1,5 +1,5 @@
-Let CACHE_NAME = 'your-app-name';
-Let urlsToCache = [
+let CACHE_NAME = 'your-app-name';
+let urlsToCache = [
   '/',
   '/completed'
 ];
@@ -18,6 +18,7 @@ self.addEventListener('install', event => {
 
 // Cache and return requests
 self.addEventListener('fetch', event => {
+  console.log('fetch sur URL : ', event.request.url);
   event.respondWith(
     caches.match(event.request)
       .then(function(response) {
@@ -33,7 +34,7 @@ self.addEventListener('fetch', event => {
 
 // Update a service worker
 self.addEventListener('activate', event => {
-  Let cacheWhitelist = ['your-app-name'];
+  let cacheWhitelist = ['your-app-name'];
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(

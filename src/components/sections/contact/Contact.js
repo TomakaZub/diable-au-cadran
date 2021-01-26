@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import MapWrapper from "../../UX-UI/googleMaps/MapWrapper"
-import { Form, Input, Button } from "antd"
+import { Form, Input, Button, Popconfirm, message } from "antd"
 import "antd/dist/antd.css"
 
 import "./style/style.css"
@@ -9,7 +9,8 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
   const [form] = Form.useForm()
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
-  const [message, setMessage] = useState("")
+  const [messageArea, setMessageArea] = useState("")
+  const [visible, setVisible] = useState(false)
 
   const layout = {
     labelCol: {
@@ -22,10 +23,15 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
 
   const validateMessages = {
     // eslint-disable-next-line no-template-curly-in-string
-    required: "${label} est nécéssaire.",
+    required: "${label} nécéssaire.",
     types: {
       email: "Ce n'est pas un email valide.",
     },
+  }
+
+  const showPopUp = (title) => {
+    message.success(title)
+    showPopUp(true)
   }
 
   const encode = (data) => {
@@ -37,7 +43,6 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
   }
 
   const handleSubmit = (e) => {
-    // /sites/daf1b9ff-a441-4a0f-9dfc-3aa13ecd8e0f/forms -- GET
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -45,25 +50,33 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
         "form-name": "contact",
         name: name,
         email: email,
-        message: message,
+        message: messageArea,
       }),
     })
       .then((response) => {
         if (response.ok) {
-          console.log(response)
-          alert("Success!")
+          return showPopUp("C'est envoyé. Merci !")
         } else {
-          console.log(response)
+          return showPopUp("Echec de l'envoi")
         }
       })
-      .catch((error) => alert(error))
+      .catch((error) => console.log(error))
     form.resetFields()
     e.preventDefault()
   }
 
-  // const onFinish = (values) => {
-  //   form.resetFields()
-  // }
+  const confirm = () => {
+    setVisible(true)
+    message.success("Sucess YEEEEAH")
+  }
+
+  const handleVisibleChange = (visible) => {
+    if (!visible) {
+      setVisible(visible)
+      return
+    }
+    confirm()
+  }
 
   if (section) {
     const settings = appContext.globalSettings[0]
@@ -71,6 +84,12 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
       <div
         className={`section section${section.tech.order} ${isChanging} contact`}
       >
+        {/* <Modal
+          title={modalTitle}
+          visible={modalVisible}
+          footer={null}
+          style={{ backgroundColor: "red", height: "100px" }}
+        ></Modal> */}
         <div className={`section-container ${filterFx}`}>
           {/* Google Maps */}
           <div className='left-side'>
@@ -86,7 +105,7 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
               <span>{settings && settings.phone}</span>
             </div>
 
-            {/* Form affiché */}
+            {/* Voir index.html où se situe le <form hidden /> */}
             <Form
               {...layout}
               form={form}
@@ -123,19 +142,21 @@ const Contact = ({ section, isChanging, filterFx, appContext }) => {
               </Form.Item>
               <Form.Item
                 name={["user", "message"]}
-                onChange={(e) => setMessage(e.target.value)}
+                onChange={(e) => setMessageArea(e.target.value)}
                 label='Message'
                 className='input-field'
               >
                 <Input.TextArea autoSize={{ minRows: 8 }} />
               </Form.Item>
-              <Button
-                htmlType='submit'
-                className='send-email-btn'
-                onClick={handleSubmit}
-              >
-                Envoyer un email
-              </Button>
+              <Popconfirm onVisibleChange={handleVisibleChange}>
+                <Button
+                  htmlType='submit'
+                  className='send-email-btn'
+                  onClick={handleSubmit}
+                >
+                  Envoyer un email
+                </Button>
+              </Popconfirm>
             </Form>
           </div>
         </div>
