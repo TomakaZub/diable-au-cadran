@@ -126,7 +126,7 @@ export const App = () => {
             <Slide>
               <HomePage section={appContext.sections[0]} />
             </Slide>
-            <Slide>
+            {/* <Slide>
               <Suspense fallback={<div>loading</div>}>
                 <Service section={appContext.sections[1]} />
               </Suspense>
@@ -140,7 +140,7 @@ export const App = () => {
               <Suspense fallback={<div>loading</div>}>
                 <Contact section={appContext.sections[3]} />
               </Suspense>
-            </Slide>
+            </Slide> */}
           </FullPage>
         </div>
       </FirebaseContext.Provider>
